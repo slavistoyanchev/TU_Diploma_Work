@@ -94,10 +94,100 @@ burger.grid(row=8, column=0, sticky=W)
 
 # Defining variables for drinks
 water_v = IntVar()
+water_v = IntVar()
+water_v = IntVar()
+water_v = IntVar()
+water_v = IntVar()
+water_v = IntVar()
+water_v = IntVar()
+water_v = IntVar()
+water_v = IntVar()
 
 # Drink Frame configure
 water = Checkbutton(drinks_frame, text='Вода',
                     font=('arial', 18, 'bold'), onvalue=1, offvalue=0, variable= water_v)
 water.grid(row=0, column=1, sticky=W)
+
+water = Checkbutton(drinks_frame, text='Вода',
+                    font=('arial', 18, 'bold'), onvalue=1, offvalue=0, variable= water_v)
+water.grid(row=1, column=1, sticky=W)
+
+water = Checkbutton(drinks_frame, text='Вода',
+                    font=('arial', 18, 'bold'), onvalue=1, offvalue=0, variable= water_v)
+water.grid(row=2, column=1, sticky=W)
+
+water = Checkbutton(drinks_frame, text='Вода',
+                    font=('arial', 18, 'bold'), onvalue=1, offvalue=0, variable= water_v)
+water.grid(row=3, column=1, sticky=W)
+
+water = Checkbutton(drinks_frame, text='Вода',
+                    font=('arial', 18, 'bold'), onvalue=1, offvalue=0, variable= water_v)
+water.grid(row=4, column=1, sticky=W)
+
+water = Checkbutton(drinks_frame, text='Вода',
+                    font=('arial', 18, 'bold'), onvalue=1, offvalue=0, variable= water_v)
+water.grid(row=5, column=1, sticky=W)
+
+water = Checkbutton(drinks_frame, text='Вода',
+                    font=('arial', 18, 'bold'), onvalue=1, offvalue=0, variable= water_v)
+water.grid(row=6, column=1, sticky=W)
+
+water = Checkbutton(drinks_frame, text='Вода',
+                    font=('arial', 18, 'bold'), onvalue=1, offvalue=0, variable= water_v)
+water.grid(row=7, column=1, sticky=W)
+
+water = Checkbutton(drinks_frame, text='Вода',
+                    font=('arial', 18, 'bold'), onvalue=1, offvalue=0, variable= water_v)
+water.grid(row=8, column=1, sticky=W)
+
+
+# Defining variables for desserts
+cake_v = IntVar()
+water_v = IntVar()
+water_v = IntVar()
+water_v = IntVar()
+water_v = IntVar()
+water_v = IntVar()
+water_v = IntVar()
+water_v = IntVar()
+water_v = IntVar()
+
+# Drink Frame configure
+cake = Checkbutton(dessert_frame, text='Торта',
+                    font=('arial', 18, 'bold'), onvalue=1, offvalue=0, variable= cake_v)
+cake.grid(row=0, column=2, sticky=W)
+
+cake = Checkbutton(dessert_frame, text='Торта',
+                    font=('arial', 18, 'bold'), onvalue=1, offvalue=0, variable= cake_v)
+cake.grid(row=1, column=2, sticky=W)
+
+cake = Checkbutton(dessert_frame, text='Торта',
+                    font=('arial', 18, 'bold'), onvalue=1, offvalue=0, variable= cake_v)
+cake.grid(row=2, column=2, sticky=W)
+
+cake = Checkbutton(dessert_frame, text='Торта',
+                    font=('arial', 18, 'bold'), onvalue=1, offvalue=0, variable= cake_v)
+cake.grid(row=3, column=2, sticky=W)
+
+cake = Checkbutton(dessert_frame, text='Торта',
+                    font=('arial', 18, 'bold'), onvalue=1, offvalue=0, variable= cake_v)
+cake.grid(row=4, column=2, sticky=W)
+
+cake = Checkbutton(dessert_frame, text='Торта',
+                    font=('arial', 18, 'bold'), onvalue=1, offvalue=0, variable= cake_v)
+cake.grid(row=5, column=2, sticky=W)
+
+cake = Checkbutton(dessert_frame, text='Торта',
+                    font=('arial', 18, 'bold'), onvalue=1, offvalue=0, variable= cake_v)
+cake.grid(row=6, column=2, sticky=W)
+
+cake = Checkbutton(dessert_frame, text='Торта',
+                    font=('arial', 18, 'bold'), onvalue=1, offvalue=0, variable= cake_v)
+cake.grid(row=7, column=2, sticky=W)
+
+cake = Checkbutton(dessert_frame, text='Торта',
+                    font=('arial', 18, 'bold'), onvalue=1, offvalue=0, variable= cake_v)
+cake.grid(row=8, column=2, sticky=W)
+
 
 root.mainloop()
