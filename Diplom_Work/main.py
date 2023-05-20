@@ -47,6 +47,13 @@ button_frame.pack()
 salad_v = IntVar()
 soup_v = IntVar()
 fish_v = IntVar()
+steak_v = IntVar()
+normal_potatoes_v = IntVar()
+sweet_potatoes_v = IntVar()
+spaghetti_v = IntVar()
+pizza_v = IntVar()
+burger_v = IntVar()
+
 # Food Frame configure
 salad = Checkbutton(food_frame, text='Салата',
                     font=('arial', 18, 'bold'), onvalue=1, offvalue=0, variable=salad_v)
@@ -58,6 +65,39 @@ soup.grid(row=1, column=0, sticky=W)
 
 fish = Checkbutton(food_frame, text='Риба',
                    font=('arial', 18, 'bold'), onvalue=1, offvalue=0, variable=fish_v)
-fish.grid(row=1, column=0, sticky=W)
+fish.grid(row=2, column=0, sticky=W)
+
+steak = Checkbutton(food_frame, text='Пържола',
+                   font=('arial', 18, 'bold'), onvalue=1, offvalue=0, variable=steak_v)
+steak.grid(row=3, column=0, sticky=W)
+
+normal_potatoes = Checkbutton(food_frame, text='Пържени картофи',
+                   font=('arial', 18, 'bold'), onvalue=1, offvalue=0, variable=normal_potatoes_v)
+normal_potatoes.grid(row=4, column=0, sticky=W)
+
+sweet_potatoes = Checkbutton(food_frame, text='Сладки картофи',
+                   font=('arial', 18, 'bold'), onvalue=1, offvalue=0, variable=sweet_potatoes_v)
+sweet_potatoes.grid(row=5, column=0, sticky=W)
+
+spaghetti = Checkbutton(food_frame, text='Спагети',
+                   font=('arial', 18, 'bold'), onvalue=1, offvalue=0, variable=spaghetti_v)
+spaghetti.grid(row=6, column=0, sticky=W)
+
+pizza = Checkbutton(food_frame, text='Пица',
+                   font=('arial', 18, 'bold'), onvalue=1, offvalue=0, variable=pizza_v)
+pizza.grid(row=7, column=0, sticky=W)
+
+burger = Checkbutton(food_frame, text='Бургер',
+                   font=('arial', 18, 'bold'), onvalue=1, offvalue=0, variable=burger_v)
+burger.grid(row=8, column=0, sticky=W)
+
+
+# Defining variables for drinks
+water_v = IntVar()
+
+# Drink Frame configure
+water = Checkbutton(drinks_frame, text='Вода',
+                    font=('arial', 18, 'bold'), onvalue=1, offvalue=0, variable= water_v)
+water.grid(row=0, column=1, sticky=W)
 
 root.mainloop()
