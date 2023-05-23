@@ -181,6 +181,50 @@ lemonade = Checkbutton(drinks_frame, text='Лимонада',
                        font=('arial', 18, 'bold'), onvalue=1, offvalue=0, variable=lemonade_v)
 lemonade.grid(row=8, column=0, sticky=W)
 
+# Defining variables for text of the drinks
+text_water_v = StringVar()
+text_coke_v = StringVar()
+text_ice_tea_v = StringVar()
+text_sparkling_water_v = StringVar()
+text_whisky_v = StringVar()
+text_red_wine_v = StringVar()
+text_white_wine_v = StringVar()
+text_vodka_v = StringVar()
+text_lemonade_v = StringVar()
+
+# Entry fields for Drinks
+text_water = Entry(drinks_frame, font=('arial', 18, 'bold'), bd=5, width=6, state=DISABLED, textvariable=text_water_v)
+text_water.grid(row=0, column=1)
+
+text_coke = Entry(drinks_frame, font=('arial', 18, 'bold'), bd=5, width=6, state=DISABLED, textvariable=text_coke_v)
+text_coke.grid(row=1, column=1)
+
+text_ice_tea = Entry(drinks_frame, font=('arial', 18, 'bold'), bd=5, width=6, state=DISABLED,
+                     textvariable=text_ice_tea_v)
+text_ice_tea.grid(row=2, column=1)
+
+text_sparkling_water = Entry(drinks_frame, font=('arial', 18, 'bold'), bd=5, width=6, state=DISABLED,
+                             textvariable=text_sparkling_water_v)
+text_sparkling_water.grid(row=3, column=1)
+
+text_whisky = Entry(drinks_frame, font=('arial', 18, 'bold'), bd=5, width=6, state=DISABLED, textvariable=text_whisky_v)
+text_whisky.grid(row=4, column=1)
+
+text_red_wine = Entry(drinks_frame, font=('arial', 18, 'bold'), bd=5, width=6, state=DISABLED,
+                      textvariable=text_red_wine_v)
+text_red_wine.grid(row=5, column=1)
+
+text_white_wine = Entry(drinks_frame, font=('arial', 18, 'bold'), bd=5, width=6, state=DISABLED,
+                        textvariable=text_white_wine_v)
+text_white_wine.grid(row=6, column=1)
+
+text_vodka = Entry(drinks_frame, font=('arial', 18, 'bold'), bd=5, width=6, state=DISABLED, textvariable=text_vodka_v)
+text_vodka.grid(row=7, column=1)
+
+text_lemonade = Entry(drinks_frame, font=('arial', 18, 'bold'), bd=5, width=6, state=DISABLED,
+                      textvariable=text_lemonade_v)
+text_lemonade.grid(row=8, column=1)
+
 # Defining variables for desserts
 strawberry_cake_v = IntVar()
 biscuit_cake_v = IntVar()
@@ -192,7 +236,7 @@ milkshake_v = IntVar()
 fondue_v = IntVar()
 fruits_v = IntVar()
 
-# Drink Frame configure
+# Dessert Frame configure
 strawberry_cake = Checkbutton(dessert_frame, text='Ягодова торта',
                               font=('arial', 18, 'bold'), onvalue=1, offvalue=0, variable=strawberry_cake_v)
 strawberry_cake.grid(row=0, column=0, sticky=W)
@@ -228,5 +272,52 @@ fondue.grid(row=7, column=0, sticky=W)
 fruits = Checkbutton(dessert_frame, text='Плодове',
                      font=('arial', 18, 'bold'), onvalue=1, offvalue=0, variable=fruits_v)
 fruits.grid(row=8, column=0, sticky=W)
+
+# Defining variables for text of the desserts
+text_strawberry_cake_v = StringVar()
+text_biscuit_cake_v = StringVar()
+text_brownie_v = StringVar()
+text_souffle_v = StringVar()
+text_pie_v = StringVar()
+text_ice_cream_v = StringVar()
+text_milkshake_v = StringVar()
+text_fondue_v = StringVar()
+text_fruits_v = StringVar()
+
+# Entry fields for Desserts
+text_strawberry_cake = Entry(dessert_frame, font=('arial', 18, 'bold'), bd=5, width=6, state=DISABLED,
+                             textvariable=text_strawberry_cake_v)
+text_strawberry_cake.grid(row=0, column=1)
+
+text_biscuit_cake = Entry(dessert_frame, font=('arial', 18, 'bold'), bd=5, width=6, state=DISABLED,
+                          textvariable=text_biscuit_cake_v)
+text_biscuit_cake.grid(row=1, column=1)
+
+text_brownie = Entry(dessert_frame, font=('arial', 18, 'bold'), bd=5, width=6, state=DISABLED,
+                     textvariable=text_brownie_v)
+text_brownie.grid(row=2, column=1)
+
+text_souffle = Entry(dessert_frame, font=('arial', 18, 'bold'), bd=5, width=6, state=DISABLED,
+                     textvariable=text_souffle_v)
+text_souffle.grid(row=3, column=1)
+
+text_pie = Entry(dessert_frame, font=('arial', 18, 'bold'), bd=5, width=6, state=DISABLED, textvariable=text_pie_v)
+text_pie.grid(row=4, column=1)
+
+text_ice_cream = Entry(dessert_frame, font=('arial', 18, 'bold'), bd=5, width=6, state=DISABLED,
+                       textvariable=text_ice_cream_v)
+text_ice_cream.grid(row=5, column=1)
+
+text_milkshake = Entry(dessert_frame, font=('arial', 18, 'bold'), bd=5, width=6, state=DISABLED,
+                       textvariable=text_milkshake_v)
+text_milkshake.grid(row=6, column=1)
+
+text_fondue = Entry(dessert_frame, font=('arial', 18, 'bold'), bd=5, width=6, state=DISABLED,
+                    textvariable=text_fondue_v)
+text_fondue.grid(row=7, column=1)
+
+text_fruits = Entry(dessert_frame, font=('arial', 18, 'bold'), bd=5, width=6, state=DISABLED,
+                    textvariable=text_fruits_v)
+text_fruits.grid(row=8, column=1)
 
 root.mainloop()
