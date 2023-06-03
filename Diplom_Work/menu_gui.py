@@ -2,24 +2,24 @@ from tkinter import *
 
 root = Tk()
 
-root.geometry('1270x690+0+0')  # Set up the window size
+root.geometry('1350x670+0+0')  # Set up the window size
 root.resizable(FALSE, FALSE)  # Remove option to resize the window
 
 root.title('Информационна система Ресторант')
 root.config(bg='#808000')  # Set the background color
 
-top_frame = Frame(root, bd=10, relief=RIDGE, bg='#808000')
+top_frame = Frame(root, bd=10, relief=RIDGE, bg='#808000')  # Create top frame
 top_frame.pack(side=TOP)
 label_title = Label(top_frame, text='Информационна система Ресторант',
-                    font=('arial', 30, 'bold'), bd=9, fg='black', bg='#8A8841', width=51)
+                    font=('arial', 30, 'bold'), bd=9, fg='black', bg='#8A8841', width=58)
 label_title.grid(row=0, column=0)
 
 # Creating Frames
-cost_frame = Frame(root, bd=7, relief=RIDGE, bg='#8A8841', pady=20)
-cost_frame.pack(side=BOTTOM)
-
 menu_frame = Frame(root, bd=7, relief=RIDGE, bg='#808000')
 menu_frame.pack(side=LEFT)
+
+cost_frame = Frame(menu_frame, bd=7, relief=RIDGE, bg='#8A8841', pady=10, padx=55)
+cost_frame.pack(side=BOTTOM)
 
 food_frame = LabelFrame(menu_frame, text='Храна',
                         font=('arial', 19, 'italic'), bd=5, relief=RIDGE, fg='black')
@@ -31,7 +31,7 @@ drinks_frame.pack(side=LEFT)
 dessert_frame = LabelFrame(menu_frame, text='Десерти', font=('arial', 19, 'italic'), bd=10, relief=RIDGE)
 dessert_frame.pack(side=LEFT)
 
-right_frame = Frame(root, bd=15, relief=RIDGE)
+right_frame = Frame(root, bd=7, relief=RIDGE, bg='#8A8841')
 right_frame.pack(side=RIGHT)
 
 calculator_frame = Frame(right_frame, bd=1, relief=RIDGE)
@@ -71,11 +71,11 @@ steak = Checkbutton(food_frame, text='Пържола',
                     font=('arial', 18, 'bold'), onvalue=1, offvalue=0, variable=steak_v)
 steak.grid(row=3, column=0, sticky=W)
 
-normal_potatoes = Checkbutton(food_frame, text='Пържени картофи',
+normal_potatoes = Checkbutton(food_frame, text='Картофи',
                               font=('arial', 18, 'bold'), onvalue=1, offvalue=0, variable=normal_potatoes_v)
 normal_potatoes.grid(row=4, column=0, sticky=W)
 
-sweet_potatoes = Checkbutton(food_frame, text='Сладки картофи',
+sweet_potatoes = Checkbutton(food_frame, text='Картофи сл.',
                              font=('arial', 18, 'bold'), onvalue=1, offvalue=0, variable=sweet_potatoes_v)
 sweet_potatoes.grid(row=5, column=0, sticky=W)
 
@@ -166,7 +166,7 @@ ice_tea = Checkbutton(drinks_frame, text='Студен чай',
                       font=('arial', 18, 'bold'), onvalue=1, offvalue=0, variable=ice_tea_v)
 ice_tea.grid(row=2, column=0, sticky=W)
 
-sparkling_water = Checkbutton(drinks_frame, text='Газирана вода',
+sparkling_water = Checkbutton(drinks_frame, text='Газ. вода',
                               font=('arial', 18, 'bold'), onvalue=1, offvalue=0, variable=sparkling_water_v)
 sparkling_water.grid(row=3, column=0, sticky=W)
 
@@ -255,11 +255,11 @@ fondue_v = IntVar()
 fruits_v = IntVar()
 
 # Dessert Frame configure
-strawberry_cake = Checkbutton(dessert_frame, text='Ягодова торта',
+strawberry_cake = Checkbutton(dessert_frame, text='Яг. торта',
                               font=('arial', 18, 'bold'), onvalue=1, offvalue=0, variable=strawberry_cake_v)
 strawberry_cake.grid(row=0, column=0, sticky=W)
 
-biscuit_cake = Checkbutton(dessert_frame, text='Бисквитена торта',
+biscuit_cake = Checkbutton(dessert_frame, text='Домашна торта',
                            font=('arial', 18, 'bold'), onvalue=1, offvalue=0, variable=biscuit_cake_v)
 biscuit_cake.grid(row=1, column=0, sticky=W)
 
@@ -397,3 +397,116 @@ label_total_cost.grid(row=2, column=2)
 text_total_cost = Entry(cost_frame, font=('arial', 16, 'bold'), bd=6, width=14, state='readonly',
                         textvariable=total_cost)
 text_total_cost.grid(row=2, column=3, padx=41)
+
+# Buttons
+button_total = Button(button_frame, text='Total', font=('arial', 14, 'bold'), fg='white', bg='#8A8841', bd=3, padx=5)
+button_total.grid(row=0, column=0)
+
+button_receipt = Button(button_frame, text='Receipt', font=('arial', 14, 'bold'), fg='white', bg='#8A8841', bd=3,
+                        padx=5)
+button_receipt.grid(row=0, column=1)
+
+button_save = Button(button_frame, text='Save', font=('arial', 14, 'bold'), fg='white', bg='#8A8841', bd=3, padx=5)
+button_save.grid(row=0, column=2)
+
+button_send = Button(button_frame, text='Send', font=('arial', 14, 'bold'), fg='white', bg='#8A8841', bd=3, padx=5)
+button_send.grid(row=0, column=3)
+
+button_reset = Button(button_frame, text='Reset', font=('arial', 14, 'bold'), fg='white', bg='#8A8841', bd=3, padx=5)
+button_reset.grid(row=0, column=4)
+
+# Receipt
+textReceipt = Text(receipt_frame, font=('arial', 12, 'bold'), bd=3, width=42, height=14)
+textReceipt.grid(row=0, column=0)
+
+# Calculator
+operator = ''  # 7+9
+
+
+def button_click(numbers):  # 9
+    global operator
+    operator = operator + numbers
+    calculator_field.delete(0, END)
+    calculator_field.insert(END, operator)
+
+
+def clear():
+    global operator
+    operator = ''
+    calculator_field.delete(0, END)
+
+
+def answer():
+    global operator
+    result = str(eval(operator))
+    calculator_field.delete(0, END)
+    calculator_field.insert(0, result)
+    operator = ''
+
+
+calculator_field = Entry(calculator_frame, font=('arial', 16, 'bold'), width=32, bd=4)
+calculator_field.grid(row=0, column=0, columnspan=4)
+
+button7 = Button(calculator_frame, text='7', font=('arial', 16, 'bold'), fg='black', bg='#8A8841', bd=6, width=6,
+                 command=lambda: button_click('7'))
+button7.grid(row=1, column=0)
+
+button8 = Button(calculator_frame, text='8', font=('arial', 16, 'bold'), fg='black', bg='#8A8841', bd=6, width=6,
+                 command=lambda: button_click('8'))
+button8.grid(row=1, column=1)
+
+button9 = Button(calculator_frame, text='9', font=('arial', 16, 'bold'), fg='black', bg='#8A8841', bd=6, width=6,
+                 command=lambda: button_click('9'))
+button9.grid(row=1, column=2)
+
+button_plus = Button(calculator_frame, text='+', font=('arial', 16, 'bold'), fg='black', bg='#8A8841', bd=6, width=6,
+                     command=lambda: button_click('+'))
+button_plus.grid(row=1, column=3)
+
+button4 = Button(calculator_frame, text='4', font=('arial', 16, 'bold'), fg='black', bg='#8A8841', bd=6, width=6,
+                 command=lambda: button_click('4'))
+button4.grid(row=2, column=0)
+
+button5 = Button(calculator_frame, text='5', font=('arial', 16, 'bold'), fg='grey', bg='white', bd=6, width=6,
+                 command=lambda: button_click('5'))
+button5.grid(row=2, column=1)
+
+button6 = Button(calculator_frame, text='6', font=('arial', 16, 'bold'), fg='grey', bg='white', bd=6, width=6,
+                 command=lambda: button_click('6'))
+button6.grid(row=2, column=2)
+
+button_minus = Button(calculator_frame, text='-', font=('arial', 16, 'bold'), fg='black', bg='#8A8841', bd=6, width=6,
+                      command=lambda: button_click('-'))
+button_minus.grid(row=2, column=3)
+
+button1 = Button(calculator_frame, text='1', font=('arial', 16, 'bold'), fg='black', bg='#8A8841', bd=6, width=6,
+                 command=lambda: button_click('1'))
+button1.grid(row=3, column=0)
+
+button2 = Button(calculator_frame, text='2', font=('arial', 16, 'bold'), fg='grey', bg='white', bd=6, width=6,
+                 command=lambda: button_click('2'))
+button2.grid(row=3, column=1)
+
+button3 = Button(calculator_frame, text='3', font=('arial', 16, 'bold'), fg='grey', bg='white', bd=6, width=6,
+                 command=lambda: button_click('3'))
+button3.grid(row=3, column=2)
+
+button_mult = Button(calculator_frame, text='*', font=('arial', 16, 'bold'), fg='black', bg='#8A8841', bd=6, width=6,
+                     command=lambda: button_click('*'))
+button_mult.grid(row=3, column=3)
+
+button_ans = Button(calculator_frame, text='Ans', font=('arial', 16, 'bold'), fg='black', bg='#8A8841', bd=6, width=6,
+                    command=answer)
+button_ans.grid(row=4, column=0)
+
+button_clear = Button(calculator_frame, text='Clear', font=('arial', 16, 'bold'), fg='black', bg='#8A8841', bd=6,
+                      width=6, command=clear)
+button_clear.grid(row=4, column=1)
+
+button0 = Button(calculator_frame, text='0', font=('arial', 16, 'bold'), fg='black', bg='#8A8841', bd=6, width=6,
+                 command=lambda: button_click('0'))
+button0.grid(row=4, column=2)
+
+button_div = Button(calculator_frame, text='/', font=('arial', 16, 'bold'), fg='black', bg='#8A8841', bd=6, width=6,
+                    command=lambda: button_click('/'))
+button_div.grid(row=4, column=3)
