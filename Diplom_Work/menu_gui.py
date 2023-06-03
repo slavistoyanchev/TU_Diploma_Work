@@ -420,10 +420,10 @@ textReceipt = Text(receipt_frame, font=('arial', 12, 'bold'), bd=3, width=42, he
 textReceipt.grid(row=0, column=0)
 
 # Calculator
-operator = ''  # 7+9
+operator = ''
 
 
-def button_click(numbers):  # 9
+def button_click(numbers):
     global operator
     operator = operator + numbers
     calculator_field.delete(0, END)
