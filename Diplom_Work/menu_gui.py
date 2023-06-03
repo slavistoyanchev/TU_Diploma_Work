@@ -1,4 +1,3 @@
-
 from tkinter import *
 
 root = Tk()
@@ -16,7 +15,7 @@ label_title = Label(top_frame, text='Информационна система �
 label_title.grid(row=0, column=0)
 
 # Creating Frames
-cost_frame = Frame(root, bd=10, relief=RIDGE)
+cost_frame = Frame(root, bd=7, relief=RIDGE, bg='#8A8841', pady=20)
 cost_frame.pack(side=BOTTOM)
 
 menu_frame = Frame(root, bd=7, relief=RIDGE, bg='#808000')
@@ -94,14 +93,23 @@ burger.grid(row=8, column=0, sticky=W)
 
 # Defining variables for text of the food
 text_salad_v = StringVar()
+text_salad_v.set('0')
 text_soup_v = StringVar()
+text_soup_v.set('0')
 text_fish_v = StringVar()
+text_fish_v.set('0')
 text_steak_v = StringVar()
+text_steak_v.set('0')
 text_normal_potatoes_v = StringVar()
+text_normal_potatoes_v.set('0')
 text_sweet_potatoes_v = StringVar()
+text_sweet_potatoes_v.set('0')
 text_spaghetti_v = StringVar()
+text_spaghetti_v.set('0')
 text_pizza_v = StringVar()
+text_pizza_v.set('0')
 text_burger_v = StringVar()
+text_burger_v.set('0')
 
 # Entry fields for Food
 text_salad = Entry(food_frame, font=('arial', 18, 'bold'), bd=5, width=6, state=DISABLED, textvariable=text_salad_v)
@@ -184,14 +192,23 @@ lemonade.grid(row=8, column=0, sticky=W)
 
 # Defining variables for text of the drinks
 text_water_v = StringVar()
+text_water_v.set('0')
 text_coke_v = StringVar()
+text_coke_v.set('0')
 text_ice_tea_v = StringVar()
+text_ice_tea_v.set('0')
 text_sparkling_water_v = StringVar()
+text_sparkling_water_v.set('0')
 text_whisky_v = StringVar()
+text_whisky_v.set('0')
 text_red_wine_v = StringVar()
+text_red_wine_v.set('0')
 text_white_wine_v = StringVar()
+text_white_wine_v.set('0')
 text_vodka_v = StringVar()
+text_vodka_v.set('0')
 text_lemonade_v = StringVar()
+text_lemonade_v.set('0')
 
 # Entry fields for Drinks
 text_water = Entry(drinks_frame, font=('arial', 18, 'bold'), bd=5, width=6, state=DISABLED, textvariable=text_water_v)
@@ -276,14 +293,23 @@ fruits.grid(row=8, column=0, sticky=W)
 
 # Defining variables for text of the desserts
 text_strawberry_cake_v = StringVar()
+text_strawberry_cake_v.set('0')
 text_biscuit_cake_v = StringVar()
+text_biscuit_cake_v.set('0')
 text_brownie_v = StringVar()
+text_brownie_v.set('0')
 text_souffle_v = StringVar()
+text_souffle_v.set('0')
 text_pie_v = StringVar()
+text_pie_v.set('0')
 text_ice_cream_v = StringVar()
+text_ice_cream_v.set('0')
 text_milkshake_v = StringVar()
+text_milkshake_v.set('0')
 text_fondue_v = StringVar()
+text_fondue_v.set('0')
 text_fruits_v = StringVar()
+text_fruits_v.set('0')
 
 # Entry fields for Desserts
 text_strawberry_cake = Entry(dessert_frame, font=('arial', 18, 'bold'), bd=5, width=6, state=DISABLED,
@@ -320,3 +346,54 @@ text_fondue.grid(row=7, column=1)
 text_fruits = Entry(dessert_frame, font=('arial', 18, 'bold'), bd=5, width=6, state=DISABLED,
                     textvariable=text_fruits_v)
 text_fruits.grid(row=8, column=1)
+
+# Defining variables for cost labels and entry fields
+cost_of_food = StringVar()
+cost_of_drinks = StringVar()
+cost_of_desserts = StringVar()
+sub_total = StringVar()
+service_tax = StringVar()
+total_cost = StringVar()
+
+# Creating Cost labels and Entry fields
+label_cost_of_food = Label(cost_frame, text='Cost of Food', font=('arial', 16, 'bold'), bg='#8A8841', fg='white')
+label_cost_of_food.grid(row=0, column=0)
+
+text_cost_of_food = Entry(cost_frame, font=('arial', 16, 'bold'), bd=6, width=14, state='readonly',
+                          textvariable=cost_of_food)
+text_cost_of_food.grid(row=0, column=1, padx=41)
+
+label_cost_of_drinks = Label(cost_frame, text='Cost of Drinks', font=('arial', 16, 'bold'), bg='#8A8841', fg='white')
+label_cost_of_drinks.grid(row=1, column=0)
+
+text_cost_of_drinks = Entry(cost_frame, font=('arial', 16, 'bold'), bd=6, width=14, state='readonly',
+                            textvariable=cost_of_drinks)
+text_cost_of_drinks.grid(row=1, column=1, padx=41)
+
+label_cost_of_desserts = Label(cost_frame, text='Cost of Cakes', font=('arial', 16, 'bold'), bg='#8A8841',
+                               fg='white')
+label_cost_of_desserts.grid(row=2, column=0)
+
+text_cost_of_cakes = Entry(cost_frame, font=('arial', 16, 'bold'), bd=6, width=14, state='readonly',
+                           textvariable=cost_of_desserts)
+text_cost_of_cakes.grid(row=2, column=1, padx=41)
+
+label_sub_total = Label(cost_frame, text='Sub Total', font=('arial', 16, 'bold'), bg='#8A8841', fg='white')
+label_sub_total.grid(row=0, column=2)
+
+text_sub_total = Entry(cost_frame, font=('arial', 16, 'bold'), bd=6, width=14, state='readonly', textvariable=sub_total)
+text_sub_total.grid(row=0, column=3, padx=41)
+
+label_service_tax = Label(cost_frame, text='Service Tax', font=('arial', 16, 'bold'), bg='#8A8841', fg='white')
+label_service_tax.grid(row=1, column=2)
+
+text_service_tax = Entry(cost_frame, font=('arial', 16, 'bold'), bd=6, width=14, state='readonly',
+                         textvariable=service_tax)
+text_service_tax.grid(row=1, column=3, padx=41)
+
+label_total_cost = Label(cost_frame, text='Total Cost', font=('arial', 16, 'bold'), bg='#8A8841', fg='white')
+label_total_cost.grid(row=2, column=2)
+
+text_total_cost = Entry(cost_frame, font=('arial', 16, 'bold'), bd=6, width=14, state='readonly',
+                        textvariable=total_cost)
+text_total_cost.grid(row=2, column=3, padx=41)
