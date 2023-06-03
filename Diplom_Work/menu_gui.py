@@ -120,39 +120,39 @@ text_burger.grid(row=8, column=1)
 
 # Drink Frame configure
 water = Checkbutton(drinks_frame, text='Вода',
-                    font=('arial', 18, 'bold'), onvalue=1, offvalue=0, variable=menu.water_v)
+                    font=('arial', 18, 'bold'), onvalue=1, offvalue=0, variable=menu.water_v, command=menu.water)
 water.grid(row=0, column=0, sticky=W)
 
 coke = Checkbutton(drinks_frame, text='Кола',
-                   font=('arial', 18, 'bold'), onvalue=1, offvalue=0, variable=menu.coke_v)
+                   font=('arial', 18, 'bold'), onvalue=1, offvalue=0, variable=menu.coke_v, command=menu.coke)
 coke.grid(row=1, column=0, sticky=W)
 
 ice_tea = Checkbutton(drinks_frame, text='Студен чай',
-                      font=('arial', 18, 'bold'), onvalue=1, offvalue=0, variable=menu.ice_tea_v)
+                      font=('arial', 18, 'bold'), onvalue=1, offvalue=0, variable=menu.ice_tea_v, command=menu.ice_tea)
 ice_tea.grid(row=2, column=0, sticky=W)
 
-sparkling_water = Checkbutton(drinks_frame, text='Газ. вода',
-                              font=('arial', 18, 'bold'), onvalue=1, offvalue=0, variable=menu.sparkling_water_v)
+sparkling_water = Checkbutton(drinks_frame, text='Газ. вода', font=('arial', 18, 'bold'),
+                              onvalue=1, offvalue=0, variable=menu.sparkling_water_v, command=menu.sparkling_water)
 sparkling_water.grid(row=3, column=0, sticky=W)
 
 whisky = Checkbutton(drinks_frame, text='Уиски',
-                     font=('arial', 18, 'bold'), onvalue=1, offvalue=0, variable=menu.whisky_v)
+                     font=('arial', 18, 'bold'), onvalue=1, offvalue=0, variable=menu.whisky_v, command=menu.whisky)
 whisky.grid(row=4, column=0, sticky=W)
 
-red_wine = Checkbutton(drinks_frame, text='Червено вино',
-                       font=('arial', 18, 'bold'), onvalue=1, offvalue=0, variable=menu.red_wine_v)
+red_wine = Checkbutton(drinks_frame, text='Червено вино', font=('arial', 18, 'bold'),
+                       onvalue=1, offvalue=0, variable=menu.red_wine_v, command=menu.red_wine)
 red_wine.grid(row=5, column=0, sticky=W)
 
-white_wine = Checkbutton(drinks_frame, text='Бяло вино',
-                         font=('arial', 18, 'bold'), onvalue=1, offvalue=0, variable=menu.white_wine_v)
+white_wine = Checkbutton(drinks_frame, text='Бяло вино', font=('arial', 18, 'bold'),
+                         onvalue=1, offvalue=0, variable=menu.white_wine_v, command=menu.white_wine)
 white_wine.grid(row=6, column=0, sticky=W)
 
 vodka = Checkbutton(drinks_frame, text='Водка',
-                    font=('arial', 18, 'bold'), onvalue=1, offvalue=0, variable=menu.vodka_v)
+                    font=('arial', 18, 'bold'), onvalue=1, offvalue=0, variable=menu.vodka_v, command=menu.vodka)
 vodka.grid(row=7, column=0, sticky=W)
 
-lemonade = Checkbutton(drinks_frame, text='Лимонада',
-                       font=('arial', 18, 'bold'), onvalue=1, offvalue=0, variable=menu.lemonade_v)
+lemonade = Checkbutton(drinks_frame, text='Лимонада', font=('arial', 18, 'bold'),
+                       onvalue=1, offvalue=0, variable=menu.lemonade_v, command=menu.lemonade)
 lemonade.grid(row=8, column=0, sticky=W)
 
 # Entry fields for Drinks
@@ -193,40 +193,40 @@ text_lemonade = Entry(drinks_frame, font=('arial', 18, 'bold'), bd=5, width=6, s
 text_lemonade.grid(row=8, column=1)
 
 # Dessert Frame configure
-strawberry_cake = Checkbutton(dessert_frame, text='Яг. торта',
-                              font=('arial', 18, 'bold'), onvalue=1, offvalue=0, variable=menu.strawberry_cake_v)
+strawberry_cake = Checkbutton(dessert_frame, text='Яг. торта', font=('arial', 18, 'bold'),
+                              onvalue=1, offvalue=0, variable=menu.strawberry_cake_v, command=menu.strawberry_cake)
 strawberry_cake.grid(row=0, column=0, sticky=W)
 
-biscuit_cake = Checkbutton(dessert_frame, text='Домашна торта',
-                           font=('arial', 18, 'bold'), onvalue=1, offvalue=0, variable=menu.biscuit_cake_v)
+biscuit_cake = Checkbutton(dessert_frame, text='Домашна торта', font=('arial', 18, 'bold'),
+                           onvalue=1, offvalue=0, variable=menu.biscuit_cake_v, command=menu.biscuit_cake)
 biscuit_cake.grid(row=1, column=0, sticky=W)
 
 brownie = Checkbutton(dessert_frame, text='Брауни',
-                      font=('arial', 18, 'bold'), onvalue=1, offvalue=0, variable=menu.brownie_v)
+                      font=('arial', 18, 'bold'), onvalue=1, offvalue=0, variable=menu.brownie_v, command=menu.brownie)
 brownie.grid(row=2, column=0, sticky=W)
 
 souffle = Checkbutton(dessert_frame, text='Суфле',
-                      font=('arial', 18, 'bold'), onvalue=1, offvalue=0, variable=menu.souffle_v)
+                      font=('arial', 18, 'bold'), onvalue=1, offvalue=0, variable=menu.souffle_v, command=menu.souffle)
 souffle.grid(row=3, column=0, sticky=W)
 
 pie = Checkbutton(dessert_frame, text='Пай',
-                  font=('arial', 18, 'bold'), onvalue=1, offvalue=0, variable=menu.pie_v)
+                  font=('arial', 18, 'bold'), onvalue=1, offvalue=0, variable=menu.pie_v, command=menu.pie)
 pie.grid(row=4, column=0, sticky=W)
 
-ice_cream = Checkbutton(dessert_frame, text='Сладолед',
-                        font=('arial', 18, 'bold'), onvalue=1, offvalue=0, variable=menu.ice_cream_v)
+ice_cream = Checkbutton(dessert_frame, text='Сладолед', font=('arial', 18, 'bold'),
+                        onvalue=1, offvalue=0, variable=menu.ice_cream_v, command=menu.ice_cream)
 ice_cream.grid(row=5, column=0, sticky=W)
 
-milkshake = Checkbutton(dessert_frame, text='Млечен шейк',
-                        font=('arial', 18, 'bold'), onvalue=1, offvalue=0, variable=menu.milkshake_v)
+milkshake = Checkbutton(dessert_frame, text='Млечен шейк', font=('arial', 18, 'bold'),
+                        onvalue=1, offvalue=0, variable=menu.milkshake_v, command=menu.milkshake)
 milkshake.grid(row=6, column=0, sticky=W)
 
 fondue = Checkbutton(dessert_frame, text='Фондю',
-                     font=('arial', 18, 'bold'), onvalue=1, offvalue=0, variable=menu.fondue_v)
+                     font=('arial', 18, 'bold'), onvalue=1, offvalue=0, variable=menu.fondue_v, command=menu.fondue)
 fondue.grid(row=7, column=0, sticky=W)
 
 fruits = Checkbutton(dessert_frame, text='Плодове',
-                     font=('arial', 18, 'bold'), onvalue=1, offvalue=0, variable=menu.fruits_v)
+                     font=('arial', 18, 'bold'), onvalue=1, offvalue=0, variable=menu.fruits_v, command=menu.fruits)
 fruits.grid(row=8, column=0, sticky=W)
 
 # Entry fields for Desserts

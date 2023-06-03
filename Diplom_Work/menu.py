@@ -118,6 +118,186 @@ def burger():
         text_burger_v.set('0')
 
 
+def water():
+    if water_v.get() == 1:
+        menu.text_water.config(state=NORMAL)
+        text_water_v.set('1')
+        menu.text_water.focus()
+    else:
+        menu.text_water.config(state=DISABLED)
+        text_water_v.set('0')
+
+
+def coke():
+    if coke_v.get() == 1:
+        menu.text_coke.config(state=NORMAL)
+        text_coke_v.set('1')
+        menu.text_coke.focus()
+    else:
+        menu.text_coke.config(state=DISABLED)
+        text_coke_v.set('0')
+
+
+def ice_tea():
+    if ice_tea_v.get() == 1:
+        menu.text_ice_tea.config(state=NORMAL)
+        text_ice_tea_v.set('1')
+        menu.text_ice_tea.focus()
+    else:
+        menu.text_ice_tea.config(state=DISABLED)
+        text_ice_tea_v.set('0')
+
+
+def sparkling_water():
+    if sparkling_water_v.get() == 1:
+        menu.text_sparkling_water.config(state=NORMAL)
+        text_sparkling_water_v.set('1')
+        menu.text_sparkling_water.focus()
+    else:
+        menu.text_sparkling_water.config(state=DISABLED)
+        text_sparkling_water_v.set('0')
+
+
+def whisky():
+    if whisky_v.get() == 1:
+        menu.text_whisky.config(state=NORMAL)
+        text_whisky_v.set('1')
+        menu.text_whisky.focus()
+    else:
+        menu.text_whisky.config(state=DISABLED)
+        text_whisky_v.set('0')
+
+
+def red_wine():
+    if red_wine_v.get() == 1:
+        menu.text_red_wine.config(state=NORMAL)
+        text_red_wine_v.set('1')
+        menu.text_red_wine.focus()
+    else:
+        menu.text_red_wine.config(state=DISABLED)
+        text_red_wine_v.set('0')
+
+
+def white_wine():
+    if white_wine_v.get() == 1:
+        menu.text_white_wine.config(state=NORMAL)
+        text_white_wine_v.set('1')
+        menu.text_white_wine.focus()
+    else:
+        menu.text_white_wine.config(state=DISABLED)
+        text_white_wine_v.set('0')
+
+
+def vodka():
+    if vodka_v.get() == 1:
+        menu.text_vodka.config(state=NORMAL)
+        text_vodka_v.set('1')
+        menu.text_vodka.focus()
+    else:
+        menu.text_vodka.config(state=DISABLED)
+        text_vodka_v.set('0')
+
+
+def lemonade():
+    if lemonade_v.get() == 1:
+        menu.text_lemonade.config(state=NORMAL)
+        text_lemonade_v.set('1')
+        menu.text_lemonade.focus()
+    else:
+        menu.text_lemonade.config(state=DISABLED)
+        text_lemonade_v.set('0')
+
+
+def strawberry_cake():
+    if strawberry_cake_v.get() == 1:
+        menu.text_strawberry_cake.config(state=NORMAL)
+        text_strawberry_cake_v.set('1')
+        menu.text_strawberry_cake.focus()
+    else:
+        menu.text_strawberry_cake.config(state=DISABLED)
+        text_strawberry_cake_v.set('0')
+
+
+def biscuit_cake():
+    if biscuit_cake_v.get() == 1:
+        menu.text_biscuit_cake.config(state=NORMAL)
+        text_biscuit_cake_v.set('1')
+        menu.text_biscuit_cake.focus()
+    else:
+        menu.text_biscuit_cake.config(state=DISABLED)
+        text_biscuit_cake_v.set('0')
+
+
+def brownie():
+    if brownie_v.get() == 1:
+        menu.text_brownie.config(state=NORMAL)
+        text_brownie_v.set('1')
+        menu.text_brownie.focus()
+    else:
+        menu.text_brownie.config(state=DISABLED)
+        text_brownie_v.set('0')
+
+
+def souffle():
+    if souffle_v.get() == 1:
+        menu.text_souffle.config(state=NORMAL)
+        text_souffle_v.set('1')
+        menu.text_souffle.focus()
+    else:
+        menu.text_souffle.config(state=DISABLED)
+        text_souffle_v.set('0')
+
+
+def pie():
+    if pie_v.get() == 1:
+        menu.text_pie.config(state=NORMAL)
+        text_pie_v.set('1')
+        menu.text_pie.focus()
+    else:
+        menu.text_pie.config(state=DISABLED)
+        text_pie_v.set('0')
+
+
+def ice_cream():
+    if ice_cream_v.get() == 1:
+        menu.text_ice_cream.config(state=NORMAL)
+        text_ice_cream_v.set('1')
+        menu.text_ice_cream.focus()
+    else:
+        menu.text_ice_cream.config(state=DISABLED)
+        text_ice_cream_v.set('0')
+
+
+def milkshake():
+    if milkshake_v.get() == 1:
+        menu.text_milkshake.config(state=NORMAL)
+        text_milkshake_v.set('1')
+        menu.text_milkshake.focus()
+    else:
+        menu.text_milkshake.config(state=DISABLED)
+        text_milkshake_v.set('0')
+
+
+def fondue():
+    if fondue_v.get() == 1:
+        menu.text_fondue.config(state=NORMAL)
+        text_fondue_v.set('1')
+        menu.text_fondue.focus()
+    else:
+        menu.text_fondue.config(state=DISABLED)
+        text_fondue_v.set('0')
+
+
+def fruits():
+    if fruits_v.get() == 1:
+        menu.text_fruits.config(state=NORMAL)
+        text_fruits_v.set('1')
+        menu.text_fruits.focus()
+    else:
+        menu.text_fruits.config(state=DISABLED)
+        text_fruits_v.set('0')
+
+
 # Defining variables for food
 salad_v = IntVar()
 soup_v = IntVar()
