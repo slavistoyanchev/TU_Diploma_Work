@@ -1,3 +1,10 @@
-import menu_gui
+import login
 
-menu_gui.root.mainloop()
+
+def open_menu_window():
+    import menu_gui
+    menu_gui.open_new_window()
+
+
+login.open_window()
+open_menu_window()
