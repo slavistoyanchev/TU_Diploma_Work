@@ -1,4 +1,8 @@
 from tkinter import *
+from tkinter import filedialog, messagebox
+import requests
+import random
+import time
 
 operator = ''
 
@@ -103,6 +107,260 @@ def open_new_window():
         sub_total.set('')
         service_tax.set('')
         total_cost.set('')
+
+    def save():
+        if text_receipt.get(1.0, END) == '\n':
+            pass
+        else:
+            url = filedialog.asksaveasfile(mode='w', defaultextension='.txt')
+            if url is None:
+                pass
+            else:
+
+                bill_data = text_receipt.get(1.0, END)
+                url.write(bill_data)
+                url.close()
+                messagebox.showinfo('Information', 'Your Bill Is Successfully Saved')
+
+    def send():
+        if text_receipt.get(1.0, END) == '\n':
+            pass
+        else:
+            def send_msg():
+                message = text_area.get(1.0, END)
+                number = number_field.get()
+                auth = 'woVHAjOGldMsPhnT7gS6XRIi4cYr0ym3FZkEWfKv9Qxauq8J2DHDWus7AqZKnkeXlVzQJa3fIRrp925S'
+                url = 'https://www.fast2sms.com/dev/bulk'
+
+                params = {
+                    'authorization': auth,
+                    'message': message,
+                    'numbers': number,
+                    'sender-id': 'FSTSMS',
+                    'route': 'p',
+                    'language': 'english'
+                }
+                response = requests.get(url, params=params)
+                dic = response.json()
+                result = dic.get('return')
+                if result:
+                    messagebox.showinfo('Send Successfully', 'Message sent successfully')
+                else:
+                    messagebox.showerror('Error', 'Something went wrong')
+
+            root2 = Toplevel()
+
+            root2.title("Send Bill")
+            root2.config(bg='red4')
+            root2.geometry('485x620+50+50')
+
+            logo_image = PhotoImage(file='sender.png')
+            label = Label(root2, image=logo_image, bg='red4')
+            label.pack(pady=5)
+
+            number_label = Label(root2, text='Mobile Number', font=('arial', 18, 'bold underline'), bg='red4',
+                                 fg='white')
+            number_label.pack(pady=5)
+
+            number_field = Entry(root2, font=('helvetica', 22, 'bold'), bd=3, width=24)
+            number_field.pack(pady=5)
+
+            bill_label = Label(root2, text='Bill Details', font=('arial', 18, 'bold underline'), bg='red4', fg='white')
+            bill_label.pack(pady=5)
+
+            text_area = Text(root2, font=('arial', 12, 'bold'), bd=3, width=42, height=14)
+            text_area.pack(pady=5)
+            text_area.insert(END, 'Receipt Ref:\t\t' + bill_number + '\t\t' + date + '\n\n')
+
+            if cost_of_food.get() != '0 Euro':
+                text_area.insert(END, f'Cost Of Food\t\t\t{price_of_food}Euro\n')
+            if cost_of_drinks.get() != '0 Euro':
+                text_area.insert(END, f'Cost Of Drinks\t\t\t{price_of_drinks}Euro\n')
+            if cost_of_desserts.get() != '0 Euro':
+                text_area.insert(END, f'Cost Of Cakes\t\t\t{price_of_desserts}Euro\n')
+
+            text_area.insert(END, f'Sub Total\t\t\t{subtotal_of_items}Euro\n')
+            text_area.insert(END, f'Service Tax\t\t\t{50}Euro\n')
+            text_area.insert(END, f'Total Cost\t\t\t{subtotal_of_items + 50}Euro\n')
+
+            send_button = Button(root2, text='SEND', font=('arial', 19, 'bold'), bg='white', fg='red4', bd=7,
+                                 relief=GROOVE, command=send_msg)
+            send_button.pack(pady=5)
+
+            root2.mainloop()
+
+    def receipt():
+        global bill_number, date
+        if cost_of_food.get() != '' or cost_of_drinks.get() != '' or cost_of_desserts.get() != '':
+            text_receipt.delete(1.0, END)
+            x = random.randint(100, 10000)
+            bill_number = 'BILL' + str(x)
+            date = time.strftime('%d/%m/%Y')
+            text_receipt.insert(END, 'Receipt Ref:\t\t' + bill_number + '\t\t' + date + '\n')
+            text_receipt.insert(END, '***************************************************************\n')
+            text_receipt.insert(END, 'Items:\t\t Cost Of Items(Euro)\n')
+            text_receipt.insert(END, '***************************************************************\n')
+            if text_salad_v.get() != '0':
+                text_receipt.insert(END, f'Salad\t\t\t{int(text_salad_v.get()) * 10}\n\n')
+
+            if text_fish_v.get() != '0':
+                text_receipt.insert(END, f'Fish\t\t\t{int(text_fish_v.get()) * 60}\n\n')
+
+            if text_soup_v.get() != '0':
+                text_receipt.insert(END, f'Soup\t\t\t{int(text_soup_v.get()) * 100}\n\n')
+
+            if text_steak_v.get() != '0':
+                text_receipt.insert(END, f'Steak:\t\t\t{int(text_steak_v.get()) * 30}\n\n')
+
+            if text_normal_potatoes_v.get() != '0':
+                text_receipt.insert(END, f'Potatoes:\t\t\t{int(text_normal_potatoes_v.get()) * 50}\n\n')
+
+            if text_sweet_potatoes_v.get() != '0':
+                text_receipt.insert(END, f'Sweet Potatoes:\t\t\t{int(text_sweet_potatoes_v.get()) * 100}\n\n')
+
+            if text_spaghetti_v.get() != '0':
+                text_receipt.insert(END, f'Spaghetti:\t\t\t{int(text_spaghetti_v.get()) * 40}\n\n')
+
+            if text_burger_v.get() != '0':
+                text_receipt.insert(END, f'Burger:\t\t\t{int(text_burger_v.get()) * 120}\n\n')
+
+            if text_pizza_v.get() != '0':
+                text_receipt.insert(END, f'Pizza:\t\t\t{int(text_pizza_v.get()) * 120}\n\n')
+
+            if text_water_v.get() != '0':
+                text_receipt.insert(END, f'Water:\t\t\t{int(text_water_v.get()) * 50}\n\n')
+
+            if text_coke_v.get() != '0':
+                text_receipt.insert(END, f'Coke:\t\t\t{int(text_coke_v.get()) * 40}\n\n')
+
+            if text_ice_tea_v.get() != '0':
+                text_receipt.insert(END, f'Ice tea:\t\t\t{int(text_ice_tea_v.get()) * 80}\n\n')
+
+            if text_sparkling_water_v.get() != '0':
+                text_receipt.insert(END, f'Sparkling water:\t\t\t{int(text_sparkling_water_v.get()) * 30}\n\n')
+
+            if text_whisky_v.get() != '0':
+                text_receipt.insert(END, f'Whisky:\t\t\t{int(text_whisky_v.get()) * 40}\n\n')
+
+            if text_red_wine_v.get() != '0':
+                text_receipt.insert(END, f'Red Wine:\t\t\t{int(text_red_wine_v.get()) * 60}\n\n')
+
+            if text_white_wine_v.get() != '0':
+                text_receipt.insert(END, f'White Wine:\t\t\t{int(text_white_wine_v.get()) * 20}\n\n')
+
+            if text_vodka_v.get() != '0':
+                text_receipt.insert(END, f'Vodka:\t\t\t{int(text_vodka_v.get()) * 50}\n\n')
+
+            if text_lemonade_v.get() != '0':
+                text_receipt.insert(END, f'Lemonade:\t\t\t{int(text_lemonade_v.get()) * 80}\n\n')
+
+            if text_strawberry_cake_v.get() != '0':
+                text_receipt.insert(END, f'Strawberry cake:\t\t\t{int(text_strawberry_cake_v.get()) * 400}\n\n')
+
+            if text_biscuit_cake_v.get() != '0':
+                text_receipt.insert(END, f'Biscuit cake:\t\t\t{int(text_biscuit_cake_v.get()) * 300}\n\n')
+
+            if text_brownie_v.get() != '0':
+                text_receipt.insert(END, f'Brownie:\t\t\t{int(text_brownie_v.get()) * 500}\n\n')
+
+            if text_souffle_v.get() != '0':
+                text_receipt.insert(END, f'Souffle:\t\t\t{int(text_souffle_v.get()) * 450}\n\n')
+
+            if text_pie_v.get() != '0':
+                text_receipt.insert(END, f'Pie:\t\t\t{int(text_pie_v.get()) * 800}\n\n')
+
+            if text_ice_cream_v.get() != '0':
+                text_receipt.insert(END, f'Ice cream:\t\t\t{int(text_ice_cream_v.get()) * 620}\n\n')
+
+            if text_milkshake_v.get() != '0':
+                text_receipt.insert(END, f'Milkshake:\t\t\t{int(text_milkshake_v.get()) * 700}\n\n')
+
+            if text_fondue_v.get() != '0':
+                text_receipt.insert(END, f'Fondue:\t\t\t{int(text_fondue_v.get()) * 550}\n\n')
+
+            if text_fruits_v.get() != '0':
+                text_receipt.insert(END, f'Fruits:\t\t\t{int(text_fruits_v.get()) * 550}\n\n')
+
+            text_receipt.insert(END, '***************************************************************\n')
+            if cost_of_food.get() != '0 Euro':
+                text_receipt.insert(END, f'Cost Of Food\t\t\t{price_of_food}Euro\n\n')
+            if cost_of_drinks.get() != '0 Euro':
+                text_receipt.insert(END, f'Cost Of Drinks\t\t\t{price_of_drinks}Euro\n\n')
+            if cost_of_desserts.get() != '0 Euro':
+                text_receipt.insert(END, f'Cost Of Cakes\t\t\t{price_of_desserts}Euro\n\n')
+
+            text_receipt.insert(END, f'Sub Total\t\t\t{subtotal_of_items}Euro\n\n')
+            text_receipt.insert(END, f'Service Tax\t\t\t{50}Euro\n\n')
+            text_receipt.insert(END, f'Total Cost\t\t\t{subtotal_of_items + 50}Euro\n\n')
+            text_receipt.insert(END, '***************************************************************\n')
+
+        else:
+            messagebox.showerror('Error', 'No Item Is selected')
+
+    def total_cost_func():
+        global price_of_food, price_of_drinks, price_of_desserts, subtotal_of_items
+        if salad_v.get() != 0 or soup_v.get() != 0 or fish_v.get() != 0 or steak_v.get() != 0 or \
+                normal_potatoes_v.get() != 0 or sweet_potatoes_v.get() != 0 or spaghetti_v.get() != 0 or \
+                pizza_v.get() != 0 or burger_v.get() != 0 or water_v.get() != 0 or \
+                coke_v.get() != 0 or ice_tea_v.get() != 0 or strawberry_cake_v.get() != 0 or \
+                sparkling_water_v.get() != 0 or whisky_v.get() != 0 or red_wine_v.get() != 0 or \
+                white_wine_v.get() != 0 or vodka_v.get() != 0 or lemonade_v.get() != 0 or biscuit_cake_v.get() != 0 or \
+                brownie_v.get() != 0 or souffle_v.get() != 0 or pie_v.get() != 0 or ice_cream_v.get() != 0 or \
+                milkshake_v.get() != 0 or fondue_v.get() != 0 or fruits_v.get() != 0:
+
+            item1 = int(text_salad_v.get())
+            item2 = int(text_fish_v.get())
+            item3 = int(text_soup_v.get())
+            item4 = int(text_normal_potatoes_v.get())
+            item5 = int(text_spaghetti_v.get())
+            item6 = int(text_steak_v.get())
+            item7 = int(text_pizza_v.get())
+            item8 = int(text_sweet_potatoes_v.get())
+            item9 = int(text_pizza_v.get())
+
+            item10 = int(text_water_v.get())
+            item11 = int(text_coke_v.get())
+            item12 = int(text_ice_tea_v.get())
+            item13 = int(text_sparkling_water_v.get())
+            item14 = int(text_whisky_v.get())
+            item15 = int(text_red_wine_v.get())
+            item16 = int(text_white_wine_v.get())
+            item17 = int(text_vodka_v.get())
+            item18 = int(text_lemonade_v.get())
+
+            item19 = int(text_strawberry_cake_v.get())
+            item20 = int(text_biscuit_cake_v.get())
+            item21 = int(text_brownie_v.get())
+            item22 = int(text_fruits_v.get())
+            item23 = int(text_souffle_v.get())
+            item24 = int(text_pie_v.get())
+            item25 = int(text_ice_cream_v.get())
+            item26 = int(text_milkshake_v.get())
+            item27 = int(text_fondue_v.get())
+
+            price_of_food = (item1 * 10) + (item2 * 60) + (item3 * 100) + (item4 * 50) + (item5 * 40) + (item6 * 30) + (
+                    item7 * 120) + (item8 * 100) + (item9 * 120)
+
+            price_of_drinks = (item10 * 50) + (item11 * 40) + (item12 * 80) + (item13 * 30) + (item14 * 40) + (
+                    item15 * 60) + (item16 * 20) + (item17 * 50) + (item18 * 80)
+
+            price_of_desserts = (item19 * 400) + (item20 * 300) + (item21 * 500) + (item22 * 550) + (item23 * 450) + (
+                    item24 * 800) + (item25 * 620) + (item26 * 700) + (item27 * 550)
+
+            cost_of_food.set(str(price_of_food) + ' Euro')
+            cost_of_drinks.set(str(price_of_drinks) + ' Euro')
+            cost_of_desserts.set(str(price_of_desserts) + ' Euro')
+
+            subtotal_of_items = price_of_food + price_of_drinks + price_of_desserts
+            sub_total.set(str(subtotal_of_items) + ' Euro')
+
+            service_tax.set('50 Euro')
+
+            total_cost_v = subtotal_of_items + 50
+            total_cost.set(str(total_cost_v) + ' Euro')
+
+        else:
+            messagebox.showerror('Error', 'No Item Is selected')
 
     def button_click(numbers):
         global operator
@@ -776,17 +1034,19 @@ def open_new_window():
 
     # Buttons
     button_total = Button(button_frame, text='Total', font=('arial', 14, 'bold'), fg='white', bg='#8A8841', bd=3,
-                          padx=5)
+                          padx=5, command=total_cost_func)
     button_total.grid(row=0, column=0)
 
     button_receipt = Button(button_frame, text='Receipt', font=('arial', 14, 'bold'), fg='white', bg='#8A8841', bd=3,
-                            padx=5)
+                            padx=5, command=receipt)
     button_receipt.grid(row=0, column=1)
 
-    button_save = Button(button_frame, text='Save', font=('arial', 14, 'bold'), fg='white', bg='#8A8841', bd=3, padx=5)
+    button_save = Button(button_frame, text='Save', font=('arial', 14, 'bold'), fg='white', bg='#8A8841', bd=3, padx=5,
+                         command=save)
     button_save.grid(row=0, column=2)
 
-    button_send = Button(button_frame, text='Send', font=('arial', 14, 'bold'), fg='white', bg='#8A8841', bd=3, padx=5)
+    button_send = Button(button_frame, text='Send', font=('arial', 14, 'bold'), fg='white', bg='#8A8841', bd=3, padx=5,
+                         command=send)
     button_send.grid(row=0, column=3)
 
     button_reset = Button(button_frame, text='Reset', font=('arial', 14, 'bold'), fg='white', bg='#8A8841', bd=3,
@@ -814,8 +1074,7 @@ def open_new_window():
     button9.grid(row=1, column=2)
 
     button_plus = Button(calculator_frame, text='+', font=('arial', 16, 'bold'), fg='black', bg='#8A8841', bd=6,
-                         width=6,
-                         command=lambda: button_click('+'))
+                         width=6, command=lambda: button_click('+'))
     button_plus.grid(row=1, column=3)
 
     button4 = Button(calculator_frame, text='4', font=('arial', 16, 'bold'), fg='black', bg='#8A8841', bd=6, width=6,
@@ -831,8 +1090,7 @@ def open_new_window():
     button6.grid(row=2, column=2)
 
     button_minus = Button(calculator_frame, text='-', font=('arial', 16, 'bold'), fg='black', bg='#8A8841', bd=6,
-                          width=6,
-                          command=lambda: button_click('-'))
+                          width=6, command=lambda: button_click('-'))
     button_minus.grid(row=2, column=3)
 
     button1 = Button(calculator_frame, text='1', font=('arial', 16, 'bold'), fg='black', bg='#8A8841', bd=6, width=6,
@@ -847,14 +1105,12 @@ def open_new_window():
                      command=lambda: button_click('3'))
     button3.grid(row=3, column=2)
 
-    button_mult = Button(calculator_frame, text='*', font=('arial', 16, 'bold'), fg='black', bg='#8A8841', bd=6,
-                         width=6,
-                         command=lambda: button_click('*'))
-    button_mult.grid(row=3, column=3)
+    button_multiply = Button(calculator_frame, text='*', font=('arial', 16, 'bold'), fg='black', bg='#8A8841', bd=6,
+                             width=6, command=lambda: button_click('*'))
+    button_multiply.grid(row=3, column=3)
 
     button_ans = Button(calculator_frame, text='Ans', font=('arial', 16, 'bold'), fg='black', bg='#8A8841', bd=6,
-                        width=6,
-                        command=answer)
+                        width=6, command=answer)
     button_ans.grid(row=4, column=0)
 
     button_clear = Button(calculator_frame, text='Clear', font=('arial', 16, 'bold'), fg='black', bg='#8A8841', bd=6,
