@@ -151,21 +151,19 @@ def open_new_window():
             root2 = Toplevel()
 
             root2.title("Send Bill")
-            root2.config(bg='red4')
-            root2.geometry('485x620+50+50')
+            root2.config(bg='#8A8841')
+            root2.geometry('485x520+50+50')
+            root2.resizable(FALSE, FALSE)  # Remove option to resize the window
 
-            logo_image = PhotoImage(file='sender.png')
-            label = Label(root2, image=logo_image, bg='red4')
-            label.pack(pady=5)
-
-            number_label = Label(root2, text='Mobile Number', font=('arial', 18, 'bold underline'), bg='red4',
+            number_label = Label(root2, text='Mobile Number', font=('arial', 18, 'bold underline'), bg='#8A8841',
                                  fg='white')
             number_label.pack(pady=5)
 
             number_field = Entry(root2, font=('helvetica', 22, 'bold'), bd=3, width=24)
             number_field.pack(pady=5)
 
-            bill_label = Label(root2, text='Bill Details', font=('arial', 18, 'bold underline'), bg='red4', fg='white')
+            bill_label = Label(root2, text='Bill Details', font=('arial', 18, 'bold underline'), bg='#8A8841',
+                               fg='black')
             bill_label.pack(pady=5)
 
             text_area = Text(root2, font=('arial', 12, 'bold'), bd=3, width=42, height=14)
@@ -177,13 +175,13 @@ def open_new_window():
             if cost_of_drinks.get() != '0 Euro':
                 text_area.insert(END, f'Cost Of Drinks\t\t\t{price_of_drinks}Euro\n')
             if cost_of_desserts.get() != '0 Euro':
-                text_area.insert(END, f'Cost Of Cakes\t\t\t{price_of_desserts}Euro\n')
+                text_area.insert(END, f'Cost Of Desserts\t\t\t{price_of_desserts}Euro\n')
 
             text_area.insert(END, f'Sub Total\t\t\t{subtotal_of_items}Euro\n')
-            text_area.insert(END, f'Service Tax\t\t\t{50}Euro\n')
-            text_area.insert(END, f'Total Cost\t\t\t{subtotal_of_items + 50}Euro\n')
+            text_area.insert(END, f'Service Tax\t\t\t{5}Euro\n')
+            text_area.insert(END, f'Total Cost\t\t\t{subtotal_of_items + 5}Euro\n')
 
-            send_button = Button(root2, text='SEND', font=('arial', 19, 'bold'), bg='white', fg='red4', bd=7,
+            send_button = Button(root2, text='SEND', font=('arial', 19, 'bold'), bg='black', fg='#8A8841', bd=7,
                                  relief=GROOVE, command=send_msg)
             send_button.pack(pady=5)
 
@@ -201,85 +199,85 @@ def open_new_window():
             text_receipt.insert(END, 'Items:\t\t Cost Of Items(Euro)\n')
             text_receipt.insert(END, '***************************************************************\n')
             if text_salad_v.get() != '0':
-                text_receipt.insert(END, f'Salad\t\t\t{int(text_salad_v.get()) * 10}\n\n')
+                text_receipt.insert(END, f'Salad\t\t\t{int(text_salad_v.get()) * 7}\n\n')
 
             if text_fish_v.get() != '0':
-                text_receipt.insert(END, f'Fish\t\t\t{int(text_fish_v.get()) * 60}\n\n')
+                text_receipt.insert(END, f'Fish\t\t\t{int(text_fish_v.get()) * 12}\n\n')
 
             if text_soup_v.get() != '0':
-                text_receipt.insert(END, f'Soup\t\t\t{int(text_soup_v.get()) * 100}\n\n')
+                text_receipt.insert(END, f'Soup\t\t\t{int(text_soup_v.get()) * 5}\n\n')
 
             if text_steak_v.get() != '0':
-                text_receipt.insert(END, f'Steak:\t\t\t{int(text_steak_v.get()) * 30}\n\n')
+                text_receipt.insert(END, f'Steak:\t\t\t{int(text_steak_v.get()) * 20}\n\n')
 
             if text_normal_potatoes_v.get() != '0':
-                text_receipt.insert(END, f'Potatoes:\t\t\t{int(text_normal_potatoes_v.get()) * 50}\n\n')
+                text_receipt.insert(END, f'Potatoes:\t\t\t{int(text_normal_potatoes_v.get()) * 8}\n\n')
 
             if text_sweet_potatoes_v.get() != '0':
-                text_receipt.insert(END, f'Sweet Potatoes:\t\t\t{int(text_sweet_potatoes_v.get()) * 100}\n\n')
+                text_receipt.insert(END, f'Sweet Potatoes:\t\t\t{int(text_sweet_potatoes_v.get()) * 10}\n\n')
 
             if text_spaghetti_v.get() != '0':
-                text_receipt.insert(END, f'Spaghetti:\t\t\t{int(text_spaghetti_v.get()) * 40}\n\n')
+                text_receipt.insert(END, f'Spaghetti:\t\t\t{int(text_spaghetti_v.get()) * 12}\n\n')
 
             if text_burger_v.get() != '0':
-                text_receipt.insert(END, f'Burger:\t\t\t{int(text_burger_v.get()) * 120}\n\n')
+                text_receipt.insert(END, f'Burger:\t\t\t{int(text_burger_v.get()) * 15}\n\n')
 
             if text_pizza_v.get() != '0':
-                text_receipt.insert(END, f'Pizza:\t\t\t{int(text_pizza_v.get()) * 120}\n\n')
+                text_receipt.insert(END, f'Pizza:\t\t\t{int(text_pizza_v.get()) * 14}\n\n')
 
             if text_water_v.get() != '0':
-                text_receipt.insert(END, f'Water:\t\t\t{int(text_water_v.get()) * 50}\n\n')
+                text_receipt.insert(END, f'Water:\t\t\t{int(text_water_v.get()) * 2}\n\n')
 
             if text_coke_v.get() != '0':
-                text_receipt.insert(END, f'Coke:\t\t\t{int(text_coke_v.get()) * 40}\n\n')
+                text_receipt.insert(END, f'Coke:\t\t\t{int(text_coke_v.get()) * 3}\n\n')
 
             if text_ice_tea_v.get() != '0':
-                text_receipt.insert(END, f'Ice tea:\t\t\t{int(text_ice_tea_v.get()) * 80}\n\n')
+                text_receipt.insert(END, f'Ice tea:\t\t\t{int(text_ice_tea_v.get()) * 3}\n\n')
 
             if text_sparkling_water_v.get() != '0':
-                text_receipt.insert(END, f'Sparkling water:\t\t\t{int(text_sparkling_water_v.get()) * 30}\n\n')
+                text_receipt.insert(END, f'Sparkling water:\t\t\t{int(text_sparkling_water_v.get()) * 3}\n\n')
 
             if text_whisky_v.get() != '0':
-                text_receipt.insert(END, f'Whisky:\t\t\t{int(text_whisky_v.get()) * 40}\n\n')
+                text_receipt.insert(END, f'Whisky:\t\t\t{int(text_whisky_v.get()) * 6}\n\n')
 
             if text_red_wine_v.get() != '0':
-                text_receipt.insert(END, f'Red Wine:\t\t\t{int(text_red_wine_v.get()) * 60}\n\n')
+                text_receipt.insert(END, f'Red Wine:\t\t\t{int(text_red_wine_v.get()) * 6}\n\n')
 
             if text_white_wine_v.get() != '0':
-                text_receipt.insert(END, f'White Wine:\t\t\t{int(text_white_wine_v.get()) * 20}\n\n')
+                text_receipt.insert(END, f'White Wine:\t\t\t{int(text_white_wine_v.get()) * 6}\n\n')
 
             if text_vodka_v.get() != '0':
-                text_receipt.insert(END, f'Vodka:\t\t\t{int(text_vodka_v.get()) * 50}\n\n')
+                text_receipt.insert(END, f'Vodka:\t\t\t{int(text_vodka_v.get()) * 6}\n\n')
 
             if text_lemonade_v.get() != '0':
-                text_receipt.insert(END, f'Lemonade:\t\t\t{int(text_lemonade_v.get()) * 80}\n\n')
+                text_receipt.insert(END, f'Lemonade:\t\t\t{int(text_lemonade_v.get()) * 4}\n\n')
 
             if text_strawberry_cake_v.get() != '0':
-                text_receipt.insert(END, f'Strawberry cake:\t\t\t{int(text_strawberry_cake_v.get()) * 400}\n\n')
+                text_receipt.insert(END, f'Strawberry cake:\t\t\t{int(text_strawberry_cake_v.get()) * 8}\n\n')
 
             if text_biscuit_cake_v.get() != '0':
-                text_receipt.insert(END, f'Biscuit cake:\t\t\t{int(text_biscuit_cake_v.get()) * 300}\n\n')
+                text_receipt.insert(END, f'Biscuit cake:\t\t\t{int(text_biscuit_cake_v.get()) * 8}\n\n')
 
             if text_brownie_v.get() != '0':
-                text_receipt.insert(END, f'Brownie:\t\t\t{int(text_brownie_v.get()) * 500}\n\n')
+                text_receipt.insert(END, f'Brownie:\t\t\t{int(text_brownie_v.get()) * 9}\n\n')
 
             if text_souffle_v.get() != '0':
-                text_receipt.insert(END, f'Souffle:\t\t\t{int(text_souffle_v.get()) * 450}\n\n')
+                text_receipt.insert(END, f'Souffle:\t\t\t{int(text_souffle_v.get()) * 12}\n\n')
 
             if text_pie_v.get() != '0':
-                text_receipt.insert(END, f'Pie:\t\t\t{int(text_pie_v.get()) * 800}\n\n')
+                text_receipt.insert(END, f'Pie:\t\t\t{int(text_pie_v.get()) * 8}\n\n')
 
             if text_ice_cream_v.get() != '0':
-                text_receipt.insert(END, f'Ice cream:\t\t\t{int(text_ice_cream_v.get()) * 620}\n\n')
+                text_receipt.insert(END, f'Ice cream:\t\t\t{int(text_ice_cream_v.get()) * 4}\n\n')
 
             if text_milkshake_v.get() != '0':
-                text_receipt.insert(END, f'Milkshake:\t\t\t{int(text_milkshake_v.get()) * 700}\n\n')
+                text_receipt.insert(END, f'Milkshake:\t\t\t{int(text_milkshake_v.get()) * 5}\n\n')
 
             if text_fondue_v.get() != '0':
-                text_receipt.insert(END, f'Fondue:\t\t\t{int(text_fondue_v.get()) * 550}\n\n')
+                text_receipt.insert(END, f'Fondue:\t\t\t{int(text_fondue_v.get()) * 7}\n\n')
 
             if text_fruits_v.get() != '0':
-                text_receipt.insert(END, f'Fruits:\t\t\t{int(text_fruits_v.get()) * 550}\n\n')
+                text_receipt.insert(END, f'Fruits:\t\t\t{int(text_fruits_v.get()) * 5}\n\n')
 
             text_receipt.insert(END, '***************************************************************\n')
             if cost_of_food.get() != '0 Euro':
@@ -287,11 +285,11 @@ def open_new_window():
             if cost_of_drinks.get() != '0 Euro':
                 text_receipt.insert(END, f'Cost Of Drinks\t\t\t{price_of_drinks}Euro\n\n')
             if cost_of_desserts.get() != '0 Euro':
-                text_receipt.insert(END, f'Cost Of Cakes\t\t\t{price_of_desserts}Euro\n\n')
+                text_receipt.insert(END, f'Cost Of Desserts\t\t\t{price_of_desserts}Euro\n\n')
 
             text_receipt.insert(END, f'Sub Total\t\t\t{subtotal_of_items}Euro\n\n')
-            text_receipt.insert(END, f'Service Tax\t\t\t{50}Euro\n\n')
-            text_receipt.insert(END, f'Total Cost\t\t\t{subtotal_of_items + 50}Euro\n\n')
+            text_receipt.insert(END, f'Service Tax\t\t\t{5}Euro\n\n')
+            text_receipt.insert(END, f'Total Cost\t\t\t{subtotal_of_items + 5}Euro\n\n')
             text_receipt.insert(END, '***************************************************************\n')
 
         else:
@@ -338,14 +336,14 @@ def open_new_window():
             item26 = int(text_milkshake_v.get())
             item27 = int(text_fondue_v.get())
 
-            price_of_food = (item1 * 10) + (item2 * 60) + (item3 * 100) + (item4 * 50) + (item5 * 40) + (item6 * 30) + (
-                    item7 * 120) + (item8 * 100) + (item9 * 120)
+            price_of_food = (item1 * 7) + (item2 * 12) + (item3 * 5) + (item4 * 20) + (item5 * 8) + (item6 * 10) + (
+                    item7 * 12) + (item8 * 15) + (item9 * 14)
 
-            price_of_drinks = (item10 * 50) + (item11 * 40) + (item12 * 80) + (item13 * 30) + (item14 * 40) + (
-                    item15 * 60) + (item16 * 20) + (item17 * 50) + (item18 * 80)
+            price_of_drinks = (item10 * 2) + (item11 * 3) + (item12 * 3) + (item13 * 3) + (item14 * 6) + (
+                    item15 * 6) + (item16 * 6) + (item17 * 6) + (item18 * 4)
 
-            price_of_desserts = (item19 * 400) + (item20 * 300) + (item21 * 500) + (item22 * 550) + (item23 * 450) + (
-                    item24 * 800) + (item25 * 620) + (item26 * 700) + (item27 * 550)
+            price_of_desserts = (item19 * 8) + (item20 * 8) + (item21 * 9) + (item22 * 12) + (item23 * 8) + (
+                    item24 * 4) + (item25 * 5) + (item26 * 7) + (item27 * 5)
 
             cost_of_food.set(str(price_of_food) + ' Euro')
             cost_of_drinks.set(str(price_of_drinks) + ' Euro')
@@ -354,9 +352,9 @@ def open_new_window():
             subtotal_of_items = price_of_food + price_of_drinks + price_of_desserts
             sub_total.set(str(subtotal_of_items) + ' Euro')
 
-            service_tax.set('50 Euro')
+            service_tax.set('5 Euro')
 
-            total_cost_v = subtotal_of_items + 50
+            total_cost_v = subtotal_of_items + 5
             total_cost.set(str(total_cost_v) + ' Euro')
 
         else:
@@ -1003,13 +1001,13 @@ def open_new_window():
                                 textvariable=cost_of_drinks)
     text_cost_of_drinks.grid(row=1, column=1, padx=41)
 
-    label_cost_of_desserts = Label(cost_frame, text='Cost of Cakes', font=('arial', 16, 'bold'), bg='#8A8841',
+    label_cost_of_desserts = Label(cost_frame, text='Cost of Desserts', font=('arial', 16, 'bold'), bg='#8A8841',
                                    fg='white')
     label_cost_of_desserts.grid(row=2, column=0)
 
-    text_cost_of_cakes = Entry(cost_frame, font=('arial', 16, 'bold'), bd=6, width=14, state='readonly',
-                               textvariable=cost_of_desserts)
-    text_cost_of_cakes.grid(row=2, column=1, padx=41)
+    text_cost_of_desserts = Entry(cost_frame, font=('arial', 16, 'bold'), bd=6, width=14, state='readonly',
+                                  textvariable=cost_of_desserts)
+    text_cost_of_desserts.grid(row=2, column=1, padx=41)
 
     label_sub_total = Label(cost_frame, text='Sub Total', font=('arial', 16, 'bold'), bg='#8A8841', fg='white')
     label_sub_total.grid(row=0, column=2)
