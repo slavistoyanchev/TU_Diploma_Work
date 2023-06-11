@@ -986,14 +986,14 @@ def open_new_window():
     text_fruits.grid(row=8, column=1)
 
     # Creating Cost labels and Entry fields
-    label_cost_of_food = Label(cost_frame, text='Cost of Food', font=('arial', 16, 'bold'), bg='#8A8841', fg='white')
+    label_cost_of_food = Label(cost_frame, text='Цена на храна', font=('arial', 16, 'bold'), bg='#8A8841', fg='white')
     label_cost_of_food.grid(row=0, column=0)
 
     text_cost_of_food = Entry(cost_frame, font=('arial', 16, 'bold'), bd=6, width=14, state='readonly',
                               textvariable=cost_of_food)
     text_cost_of_food.grid(row=0, column=1, padx=41)
 
-    label_cost_of_drinks = Label(cost_frame, text='Cost of Drinks', font=('arial', 16, 'bold'), bg='#8A8841',
+    label_cost_of_drinks = Label(cost_frame, text='Цена на напитки', font=('arial', 16, 'bold'), bg='#8A8841',
                                  fg='white')
     label_cost_of_drinks.grid(row=1, column=0)
 
@@ -1001,7 +1001,7 @@ def open_new_window():
                                 textvariable=cost_of_drinks)
     text_cost_of_drinks.grid(row=1, column=1, padx=41)
 
-    label_cost_of_desserts = Label(cost_frame, text='Cost of Desserts', font=('arial', 16, 'bold'), bg='#8A8841',
+    label_cost_of_desserts = Label(cost_frame, text='Цена на десерти', font=('arial', 16, 'bold'), bg='#8A8841',
                                    fg='white')
     label_cost_of_desserts.grid(row=2, column=0)
 
@@ -1009,21 +1009,21 @@ def open_new_window():
                                   textvariable=cost_of_desserts)
     text_cost_of_desserts.grid(row=2, column=1, padx=41)
 
-    label_sub_total = Label(cost_frame, text='Sub Total', font=('arial', 16, 'bold'), bg='#8A8841', fg='white')
+    label_sub_total = Label(cost_frame, text='Моментна сума', font=('arial', 16, 'bold'), bg='#8A8841', fg='white')
     label_sub_total.grid(row=0, column=2)
 
     text_sub_total = Entry(cost_frame, font=('arial', 16, 'bold'), bd=6, width=14, state='readonly',
                            textvariable=sub_total)
     text_sub_total.grid(row=0, column=3, padx=41)
 
-    label_service_tax = Label(cost_frame, text='Service Tax', font=('arial', 16, 'bold'), bg='#8A8841', fg='white')
+    label_service_tax = Label(cost_frame, text='Такса за услуга', font=('arial', 16, 'bold'), bg='#8A8841', fg='white')
     label_service_tax.grid(row=1, column=2)
 
     text_service_tax = Entry(cost_frame, font=('arial', 16, 'bold'), bd=6, width=14, state='readonly',
                              textvariable=service_tax)
     text_service_tax.grid(row=1, column=3, padx=41)
 
-    label_total_cost = Label(cost_frame, text='Total Cost', font=('arial', 16, 'bold'), bg='#8A8841', fg='white')
+    label_total_cost = Label(cost_frame, text='Обща сума', font=('arial', 16, 'bold'), bg='#8A8841', fg='white')
     label_total_cost.grid(row=2, column=2)
 
     text_total_cost = Entry(cost_frame, font=('arial', 16, 'bold'), bd=6, width=14, state='readonly',
