@@ -8,7 +8,7 @@ operator = ''
 
 
 def open_new_window():
-    root = Tk()
+    window = Tk()
 
     # Define methods
     def reset():
@@ -148,25 +148,25 @@ def open_new_window():
                 else:
                     messagebox.showerror('Error', 'Something went wrong')
 
-            root2 = Toplevel()
+            window2 = Toplevel()
 
-            root2.title("Send Bill")
-            root2.config(bg='#8A8841')
-            root2.geometry('485x520+50+50')
-            root2.resizable(FALSE, FALSE)  # Remove option to resize the window
+            window2.title("Send Bill")
+            window2.config(bg='#8A8841')
+            window2.geometry('485x520+50+50')
+            window2.resizable(FALSE, FALSE)  # Remove option to resize the window
 
-            number_label = Label(root2, text='Mobile Number', font=('arial', 18, 'bold underline'), bg='#8A8841',
+            number_label = Label(window2, text='Mobile Number', font=('arial', 18, 'bold underline'), bg='#8A8841',
                                  fg='white')
             number_label.pack(pady=5)
 
-            number_field = Entry(root2, font=('helvetica', 22, 'bold'), bd=3, width=24)
+            number_field = Entry(window2, font=('helvetica', 22, 'bold'), bd=3, width=24)
             number_field.pack(pady=5)
 
-            bill_label = Label(root2, text='Bill Details', font=('arial', 18, 'bold underline'), bg='#8A8841',
+            bill_label = Label(window2, text='Bill Details', font=('arial', 18, 'bold underline'), bg='#8A8841',
                                fg='black')
             bill_label.pack(pady=5)
 
-            text_area = Text(root2, font=('arial', 12, 'bold'), bd=3, width=42, height=14)
+            text_area = Text(window2, font=('arial', 12, 'bold'), bd=3, width=42, height=14)
             text_area.pack(pady=5)
             text_area.insert(END, 'Receipt Ref:\t\t' + bill_number + '\t\t' + date + '\n\n')
 
@@ -181,11 +181,11 @@ def open_new_window():
             text_area.insert(END, f'Service Tax\t\t\t{5}Euro\n')
             text_area.insert(END, f'Total Cost\t\t\t{subtotal_of_items + 5}Euro\n')
 
-            send_button = Button(root2, text='SEND', font=('arial', 19, 'bold'), bg='black', fg='#8A8841', bd=7,
+            send_button = Button(window2, text='SEND', font=('arial', 19, 'bold'), bg='black', fg='#8A8841', bd=7,
                                  relief=GROOVE, command=send_msg)
             send_button.pack(pady=5)
 
-            root2.mainloop()
+            window2.mainloop()
 
     def receipt():
         global bill_number, date
@@ -312,7 +312,7 @@ def open_new_window():
             item4 = int(text_normal_potatoes_v.get())
             item5 = int(text_spaghetti_v.get())
             item6 = int(text_steak_v.get())
-            item7 = int(text_pizza_v.get())
+            item7 = int(text_burger_v.get())
             item8 = int(text_sweet_potatoes_v.get())
             item9 = int(text_pizza_v.get())
 
@@ -336,14 +336,14 @@ def open_new_window():
             item26 = int(text_milkshake_v.get())
             item27 = int(text_fondue_v.get())
 
-            price_of_food = (item1 * 7) + (item2 * 12) + (item3 * 5) + (item4 * 20) + (item5 * 8) + (item6 * 10) + (
-                    item7 * 12) + (item8 * 15) + (item9 * 14)
+            price_of_food = (item1 * 7) + (item2 * 12) + (item3 * 5) + (item4 * 8) + (item5 * 12) + (item6 * 20) + (
+                    item7 * 15) + (item8 * 10) + (item9 * 14)
 
             price_of_drinks = (item10 * 2) + (item11 * 3) + (item12 * 3) + (item13 * 3) + (item14 * 6) + (
                     item15 * 6) + (item16 * 6) + (item17 * 6) + (item18 * 4)
 
-            price_of_desserts = (item19 * 8) + (item20 * 8) + (item21 * 9) + (item22 * 12) + (item23 * 8) + (
-                    item24 * 4) + (item25 * 5) + (item26 * 7) + (item27 * 5)
+            price_of_desserts = (item19 * 8) + (item20 * 8) + (item21 * 9) + (item22 * 5) + (item23 * 12) + (
+                    item24 * 8) + (item25 * 4) + (item26 * 5) + (item27 * 7)
 
             cost_of_food.set(str(price_of_food) + ' Euro')
             cost_of_drinks.set(str(price_of_drinks) + ' Euro')
@@ -723,20 +723,20 @@ def open_new_window():
     service_tax = StringVar()
     total_cost = StringVar()
 
-    root.geometry('1350x670+0+0')  # Set up the window size
-    root.resizable(FALSE, FALSE)  # Remove option to resize the window
+    window.geometry('1350x670+0+0')  # Set up the window size
+    window.resizable(FALSE, FALSE)  # Remove option to resize the window
 
-    root.title('Информационна система Ресторант')
-    root.config(bg='#808000')  # Set the background color
+    window.title('Информационна система Ресторант')
+    window.config(bg='#808000')  # Set the background color
 
-    top_frame = Frame(root, bd=10, relief=RIDGE, bg='#808000')  # Create top frame
+    top_frame = Frame(window, bd=10, relief=RIDGE, bg='#808000')  # Create top frame
     top_frame.pack(side=TOP)
     label_title = Label(top_frame, text='Информационна система Ресторант',
                         font=('arial', 30, 'bold'), bd=9, fg='black', bg='#8A8841', width=58)
     label_title.grid(row=0, column=0)
 
     # Creating Frames
-    menu_frame = Frame(root, bd=7, relief=RIDGE, bg='#808000')
+    menu_frame = Frame(window, bd=7, relief=RIDGE, bg='#808000')
     menu_frame.pack(side=LEFT)
 
     cost_frame = Frame(menu_frame, bd=7, relief=RIDGE, bg='#8A8841', pady=10, padx=55)
@@ -752,7 +752,7 @@ def open_new_window():
     dessert_frame = LabelFrame(menu_frame, text='Десерти', font=('arial', 19, 'italic'), bd=10, relief=RIDGE)
     dessert_frame.pack(side=LEFT)
 
-    right_frame = Frame(root, bd=7, relief=RIDGE, bg='#8A8841')
+    right_frame = Frame(window, bd=7, relief=RIDGE, bg='#8A8841')
     right_frame.pack(side=RIGHT)
 
     calculator_frame = Frame(right_frame, bd=1, relief=RIDGE)
@@ -1123,4 +1123,4 @@ def open_new_window():
                         command=lambda: button_click('/'))
     button_div.grid(row=4, column=3)
 
-    root.mainloop()
+    window.mainloop()
