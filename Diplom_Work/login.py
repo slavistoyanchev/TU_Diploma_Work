@@ -1,11 +1,15 @@
 import tkinter as tk
 
+status = False
+
 
 def open_window():
     def login():
         username = entry_username.get()
         password = entry_password.get()
         if username == "admin" and password == "password":
+            global status
+            status = True
             window.destroy()
         else:
             label_result.config(text="Грешно име или парола", fg="red")
