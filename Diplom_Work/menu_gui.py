@@ -723,8 +723,8 @@ def open_new_window():
     service_tax = StringVar()
     total_cost = StringVar()
 
-    window.geometry('1350x670+0+0')  # Set up the window size
-    window.resizable(FALSE, FALSE)  # Remove option to resize the window
+    window.geometry('1290x670+0+0')  # Set up the window size
+    # window.resizable(FALSE, FALSE)  # Remove option to resize the window
 
     window.title('Информационна система Ресторант')
     window.config(bg='#808000')  # Set the background color
@@ -739,7 +739,7 @@ def open_new_window():
     menu_frame = Frame(window, bd=7, relief=RIDGE, bg='#808000')
     menu_frame.pack(side=LEFT)
 
-    cost_frame = Frame(menu_frame, bd=7, relief=RIDGE, bg='#8A8841', pady=10, padx=55)
+    cost_frame = Frame(menu_frame, bd=7, relief=RIDGE, bg='#8A8841', pady=10, padx=65)
     cost_frame.pack(side=BOTTOM)
 
     food_frame = LabelFrame(menu_frame, text='Храна',
@@ -758,7 +758,7 @@ def open_new_window():
     calculator_frame = Frame(right_frame, bd=1, relief=RIDGE)
     calculator_frame.pack()
 
-    receipt_frame = Frame(right_frame, bd=4, relief=RIDGE)
+    receipt_frame = Frame(right_frame, bd=3, relief=RIDGE)
     receipt_frame.pack()
 
     button_frame = Frame(right_frame, bd=3, relief=RIDGE)
@@ -989,7 +989,7 @@ def open_new_window():
     label_cost_of_food = Label(cost_frame, text='Цена на храна', font=('arial', 16, 'bold'), bg='#8A8841', fg='white')
     label_cost_of_food.grid(row=0, column=0)
 
-    text_cost_of_food = Entry(cost_frame, font=('arial', 16, 'bold'), bd=6, width=14, state='readonly',
+    text_cost_of_food = Entry(cost_frame, font=('arial', 16, 'bold'), bd=6, width=10, state='readonly',
                               textvariable=cost_of_food)
     text_cost_of_food.grid(row=0, column=1, padx=41)
 
@@ -997,7 +997,7 @@ def open_new_window():
                                  fg='white')
     label_cost_of_drinks.grid(row=1, column=0)
 
-    text_cost_of_drinks = Entry(cost_frame, font=('arial', 16, 'bold'), bd=6, width=14, state='readonly',
+    text_cost_of_drinks = Entry(cost_frame, font=('arial', 16, 'bold'), bd=6, width=10, state='readonly',
                                 textvariable=cost_of_drinks)
     text_cost_of_drinks.grid(row=1, column=1, padx=41)
 
@@ -1005,121 +1005,121 @@ def open_new_window():
                                    fg='white')
     label_cost_of_desserts.grid(row=2, column=0)
 
-    text_cost_of_desserts = Entry(cost_frame, font=('arial', 16, 'bold'), bd=6, width=14, state='readonly',
+    text_cost_of_desserts = Entry(cost_frame, font=('arial', 16, 'bold'), bd=6, width=10, state='readonly',
                                   textvariable=cost_of_desserts)
     text_cost_of_desserts.grid(row=2, column=1, padx=41)
 
     label_sub_total = Label(cost_frame, text='Моментна сума', font=('arial', 16, 'bold'), bg='#8A8841', fg='white')
     label_sub_total.grid(row=0, column=2)
 
-    text_sub_total = Entry(cost_frame, font=('arial', 16, 'bold'), bd=6, width=14, state='readonly',
+    text_sub_total = Entry(cost_frame, font=('arial', 16, 'bold'), bd=6, width=10, state='readonly',
                            textvariable=sub_total)
     text_sub_total.grid(row=0, column=3, padx=41)
 
     label_service_tax = Label(cost_frame, text='Такса за услуга', font=('arial', 16, 'bold'), bg='#8A8841', fg='white')
     label_service_tax.grid(row=1, column=2)
 
-    text_service_tax = Entry(cost_frame, font=('arial', 16, 'bold'), bd=6, width=14, state='readonly',
+    text_service_tax = Entry(cost_frame, font=('arial', 16, 'bold'), bd=6, width=10, state='readonly',
                              textvariable=service_tax)
     text_service_tax.grid(row=1, column=3, padx=41)
 
     label_total_cost = Label(cost_frame, text='Обща сума', font=('arial', 16, 'bold'), bg='#8A8841', fg='white')
     label_total_cost.grid(row=2, column=2)
 
-    text_total_cost = Entry(cost_frame, font=('arial', 16, 'bold'), bd=6, width=14, state='readonly',
+    text_total_cost = Entry(cost_frame, font=('arial', 16, 'bold'), bd=6, width=10, state='readonly',
                             textvariable=total_cost)
     text_total_cost.grid(row=2, column=3, padx=41)
 
     # Buttons
-    button_total = Button(button_frame, text='Total', font=('arial', 14, 'bold'), fg='white', bg='#8A8841', bd=3,
+    button_total = Button(button_frame, text='Total', font=('arial', 11, 'bold'), fg='white', bg='#8A8841', bd=3,
                           padx=5, command=total_cost_func)
     button_total.grid(row=0, column=0)
 
-    button_receipt = Button(button_frame, text='Receipt', font=('arial', 14, 'bold'), fg='white', bg='#8A8841', bd=3,
+    button_receipt = Button(button_frame, text='Receipt', font=('arial', 11, 'bold'), fg='white', bg='#8A8841', bd=3,
                             padx=5, command=receipt)
     button_receipt.grid(row=0, column=1)
 
-    button_save = Button(button_frame, text='Save', font=('arial', 14, 'bold'), fg='white', bg='#8A8841', bd=3, padx=5,
+    button_save = Button(button_frame, text='Save', font=('arial', 11, 'bold'), fg='white', bg='#8A8841', bd=3, padx=5,
                          command=save)
     button_save.grid(row=0, column=2)
 
-    button_send = Button(button_frame, text='Send', font=('arial', 14, 'bold'), fg='white', bg='#8A8841', bd=3, padx=5,
+    button_send = Button(button_frame, text='Send', font=('arial', 11, 'bold'), fg='white', bg='#8A8841', bd=3, padx=5,
                          command=send)
     button_send.grid(row=0, column=3)
 
-    button_reset = Button(button_frame, text='Reset', font=('arial', 14, 'bold'), fg='white', bg='#8A8841', bd=3,
+    button_reset = Button(button_frame, text='Reset', font=('arial', 11, 'bold'), fg='white', bg='#8A8841', bd=3,
                           padx=5, command=reset)
     button_reset.grid(row=0, column=4)
 
     # Receipt
-    text_receipt = Text(receipt_frame, font=('arial', 12, 'bold'), bd=3, width=42, height=14)
+    text_receipt = Text(receipt_frame, font=('arial', 12, 'bold'), bd=3, width=38, height=12, pady=35)
     text_receipt.grid(row=0, column=0)
 
     # Calculator
-    calculator_field = Entry(calculator_frame, font=('arial', 16, 'bold'), width=32, bd=4)
+    calculator_field = Entry(calculator_frame, font=('arial', 14, 'bold'), width=32, bd=3)
     calculator_field.grid(row=0, column=0, columnspan=4)
 
-    button7 = Button(calculator_frame, text='7', font=('arial', 16, 'bold'), fg='black', bg='#8A8841', bd=6, width=6,
+    button7 = Button(calculator_frame, text='7', font=('arial', 14, 'bold'), fg='black', bg='#8A8841', bd=5, width=6,
                      command=lambda: button_click('7'))
     button7.grid(row=1, column=0)
 
-    button8 = Button(calculator_frame, text='8', font=('arial', 16, 'bold'), fg='black', bg='#8A8841', bd=6, width=6,
+    button8 = Button(calculator_frame, text='8', font=('arial', 14, 'bold'), fg='black', bg='#8A8841', bd=5, width=6,
                      command=lambda: button_click('8'))
     button8.grid(row=1, column=1)
 
-    button9 = Button(calculator_frame, text='9', font=('arial', 16, 'bold'), fg='black', bg='#8A8841', bd=6, width=6,
+    button9 = Button(calculator_frame, text='9', font=('arial', 14, 'bold'), fg='black', bg='#8A8841', bd=5, width=6,
                      command=lambda: button_click('9'))
     button9.grid(row=1, column=2)
 
-    button_plus = Button(calculator_frame, text='+', font=('arial', 16, 'bold'), fg='black', bg='#8A8841', bd=6,
+    button_plus = Button(calculator_frame, text='+', font=('arial', 14, 'bold'), fg='black', bg='#8A8841', bd=5,
                          width=6, command=lambda: button_click('+'))
     button_plus.grid(row=1, column=3)
 
-    button4 = Button(calculator_frame, text='4', font=('arial', 16, 'bold'), fg='black', bg='#8A8841', bd=6, width=6,
+    button4 = Button(calculator_frame, text='4', font=('arial', 14, 'bold'), fg='black', bg='#8A8841', bd=5, width=6,
                      command=lambda: button_click('4'))
     button4.grid(row=2, column=0)
 
-    button5 = Button(calculator_frame, text='5', font=('arial', 16, 'bold'), fg='grey', bg='white', bd=6, width=6,
+    button5 = Button(calculator_frame, text='5', font=('arial', 14, 'bold'), fg='grey', bg='white', bd=5, width=6,
                      command=lambda: button_click('5'))
     button5.grid(row=2, column=1)
 
-    button6 = Button(calculator_frame, text='6', font=('arial', 16, 'bold'), fg='grey', bg='white', bd=6, width=6,
+    button6 = Button(calculator_frame, text='6', font=('arial', 14, 'bold'), fg='grey', bg='white', bd=5, width=6,
                      command=lambda: button_click('6'))
     button6.grid(row=2, column=2)
 
-    button_minus = Button(calculator_frame, text='-', font=('arial', 16, 'bold'), fg='black', bg='#8A8841', bd=6,
+    button_minus = Button(calculator_frame, text='-', font=('arial', 14, 'bold'), fg='black', bg='#8A8841', bd=5,
                           width=6, command=lambda: button_click('-'))
     button_minus.grid(row=2, column=3)
 
-    button1 = Button(calculator_frame, text='1', font=('arial', 16, 'bold'), fg='black', bg='#8A8841', bd=6, width=6,
+    button1 = Button(calculator_frame, text='1', font=('arial', 14, 'bold'), fg='black', bg='#8A8841', bd=5, width=6,
                      command=lambda: button_click('1'))
     button1.grid(row=3, column=0)
 
-    button2 = Button(calculator_frame, text='2', font=('arial', 16, 'bold'), fg='grey', bg='white', bd=6, width=6,
+    button2 = Button(calculator_frame, text='2', font=('arial', 14, 'bold'), fg='grey', bg='white', bd=5, width=6,
                      command=lambda: button_click('2'))
     button2.grid(row=3, column=1)
 
-    button3 = Button(calculator_frame, text='3', font=('arial', 16, 'bold'), fg='grey', bg='white', bd=6, width=6,
+    button3 = Button(calculator_frame, text='3', font=('arial', 14, 'bold'), fg='grey', bg='white', bd=5, width=6,
                      command=lambda: button_click('3'))
     button3.grid(row=3, column=2)
 
-    button_multiply = Button(calculator_frame, text='*', font=('arial', 16, 'bold'), fg='black', bg='#8A8841', bd=6,
+    button_multiply = Button(calculator_frame, text='*', font=('arial', 14, 'bold'), fg='black', bg='#8A8841', bd=5,
                              width=6, command=lambda: button_click('*'))
     button_multiply.grid(row=3, column=3)
 
-    button_ans = Button(calculator_frame, text='Ans', font=('arial', 16, 'bold'), fg='black', bg='#8A8841', bd=6,
+    button_ans = Button(calculator_frame, text='Ans', font=('arial', 14, 'bold'), fg='black', bg='#8A8841', bd=5,
                         width=6, command=answer)
     button_ans.grid(row=4, column=0)
 
-    button_clear = Button(calculator_frame, text='Clear', font=('arial', 16, 'bold'), fg='black', bg='#8A8841', bd=6,
+    button_clear = Button(calculator_frame, text='Clear', font=('arial', 14, 'bold'), fg='black', bg='#8A8841', bd=5,
                           width=6, command=clear)
     button_clear.grid(row=4, column=1)
 
-    button0 = Button(calculator_frame, text='0', font=('arial', 16, 'bold'), fg='black', bg='#8A8841', bd=6, width=6,
+    button0 = Button(calculator_frame, text='0', font=('arial', 14, 'bold'), fg='black', bg='#8A8841', bd=5, width=6,
                      command=lambda: button_click('0'))
     button0.grid(row=4, column=2)
 
-    button_div = Button(calculator_frame, text='/', font=('arial', 16, 'bold'), fg='black', bg='#8A8841', bd=6, width=6,
+    button_div = Button(calculator_frame, text='/', font=('arial', 14, 'bold'), fg='black', bg='#8A8841', bd=5, width=6,
                         command=lambda: button_click('/'))
     button_div.grid(row=4, column=3)
 
