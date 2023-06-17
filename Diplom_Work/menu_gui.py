@@ -120,7 +120,7 @@ def open_new_window():
                 bill_data = text_receipt.get(1.0, END)
                 url.write(bill_data)
                 url.close()
-                messagebox.showinfo('Information', 'Your Bill Is Successfully Saved')
+                messagebox.showinfo('Информация', 'Касовия бон е запазен успешно!')
 
     def send():
         if text_receipt.get(1.0, END) == '\n':
@@ -150,12 +150,12 @@ def open_new_window():
 
             window2 = Toplevel()
 
-            window2.title("Send Bill")
+            window2.title("Изпрати сметка")
             window2.config(bg='#8A8841')
             window2.geometry('485x520+50+50')
             window2.resizable(FALSE, FALSE)  # Remove option to resize the window
 
-            number_label = Label(window2, text='Mobile Number', font=('arial', 18, 'bold underline'), bg='#8A8841',
+            number_label = Label(window2, text='Мобилен номер', font=('arial', 18, 'bold underline'), bg='#8A8841',
                                  fg='white')
             number_label.pack(pady=5)
 
@@ -168,18 +168,18 @@ def open_new_window():
 
             text_area = Text(window2, font=('arial', 12, 'bold'), bd=3, width=42, height=14)
             text_area.pack(pady=5)
-            text_area.insert(END, 'Receipt Ref:\t\t' + bill_number + '\t\t' + date + '\n\n')
+            text_area.insert(END, 'Справка:\t\t' + bill_number + '\t\t' + date + '\n\n')
 
             if cost_of_food.get() != '0 Euro':
-                text_area.insert(END, f'Cost Of Food\t\t\t{price_of_food}Euro\n')
+                text_area.insert(END, f'Цена на храни:\t\t\t{price_of_food}Euro\n')
             if cost_of_drinks.get() != '0 Euro':
-                text_area.insert(END, f'Cost Of Drinks\t\t\t{price_of_drinks}Euro\n')
+                text_area.insert(END, f'Цена на напитки:\t\t\t{price_of_drinks}Euro\n')
             if cost_of_desserts.get() != '0 Euro':
-                text_area.insert(END, f'Cost Of Desserts\t\t\t{price_of_desserts}Euro\n')
+                text_area.insert(END, f'Цена на десерти:\t\t\t{price_of_desserts}Euro\n')
 
-            text_area.insert(END, f'Sub Total\t\t\t{subtotal_of_items}Euro\n')
-            text_area.insert(END, f'Service Tax\t\t\t{5}Euro\n')
-            text_area.insert(END, f'Total Cost\t\t\t{subtotal_of_items + 5}Euro\n')
+            text_area.insert(END, f'Моментна цена\t\t\t{subtotal_of_items}Euro\n')
+            text_area.insert(END, f'Такса за услугата:\t\t\t{5}Euro\n')
+            text_area.insert(END, f'Обща сума:\t\t\t{subtotal_of_items + 5}Euro\n')
 
             send_button = Button(window2, text='SEND', font=('arial', 19, 'bold'), bg='black', fg='#8A8841', bd=7,
                                  relief=GROOVE, command=send_msg)
@@ -196,104 +196,104 @@ def open_new_window():
             date = time.strftime('%d/%m/%Y')
             text_receipt.insert(END, 'Receipt Ref:\t\t' + bill_number + '\t\t' + date + '\n')
             text_receipt.insert(END, '***************************************************************\n')
-            text_receipt.insert(END, 'Items:\t\t Cost Of Items(Euro)\n')
+            text_receipt.insert(END, 'Артикули:\t\t Цена на ястия(Euro)\n')
             text_receipt.insert(END, '***************************************************************\n')
             if text_salad_v.get() != '0':
-                text_receipt.insert(END, f'Salad\t\t\t{int(text_salad_v.get()) * 7}\n\n')
+                text_receipt.insert(END, f'Салата\t\t\t{int(text_salad_v.get()) * 7}\n\n')
 
             if text_fish_v.get() != '0':
-                text_receipt.insert(END, f'Fish\t\t\t{int(text_fish_v.get()) * 12}\n\n')
+                text_receipt.insert(END, f'Риба\t\t\t{int(text_fish_v.get()) * 12}\n\n')
 
             if text_soup_v.get() != '0':
-                text_receipt.insert(END, f'Soup\t\t\t{int(text_soup_v.get()) * 5}\n\n')
+                text_receipt.insert(END, f'Супа\t\t\t{int(text_soup_v.get()) * 5}\n\n')
 
             if text_steak_v.get() != '0':
-                text_receipt.insert(END, f'Steak:\t\t\t{int(text_steak_v.get()) * 20}\n\n')
+                text_receipt.insert(END, f'Пържола:\t\t\t{int(text_steak_v.get()) * 20}\n\n')
 
             if text_normal_potatoes_v.get() != '0':
-                text_receipt.insert(END, f'Potatoes:\t\t\t{int(text_normal_potatoes_v.get()) * 8}\n\n')
+                text_receipt.insert(END, f'Картофи:\t\t\t{int(text_normal_potatoes_v.get()) * 8}\n\n')
 
             if text_sweet_potatoes_v.get() != '0':
-                text_receipt.insert(END, f'Sweet Potatoes:\t\t\t{int(text_sweet_potatoes_v.get()) * 10}\n\n')
+                text_receipt.insert(END, f'Сладки картофи:\t\t\t{int(text_sweet_potatoes_v.get()) * 10}\n\n')
 
             if text_spaghetti_v.get() != '0':
-                text_receipt.insert(END, f'Spaghetti:\t\t\t{int(text_spaghetti_v.get()) * 12}\n\n')
+                text_receipt.insert(END, f'Спагети:\t\t\t{int(text_spaghetti_v.get()) * 12}\n\n')
 
             if text_burger_v.get() != '0':
-                text_receipt.insert(END, f'Burger:\t\t\t{int(text_burger_v.get()) * 15}\n\n')
+                text_receipt.insert(END, f'Бургер:\t\t\t{int(text_burger_v.get()) * 15}\n\n')
 
             if text_pizza_v.get() != '0':
-                text_receipt.insert(END, f'Pizza:\t\t\t{int(text_pizza_v.get()) * 14}\n\n')
+                text_receipt.insert(END, f'Пица:\t\t\t{int(text_pizza_v.get()) * 14}\n\n')
 
             if text_water_v.get() != '0':
-                text_receipt.insert(END, f'Water:\t\t\t{int(text_water_v.get()) * 2}\n\n')
+                text_receipt.insert(END, f'Вода:\t\t\t{int(text_water_v.get()) * 2}\n\n')
 
             if text_coke_v.get() != '0':
-                text_receipt.insert(END, f'Coke:\t\t\t{int(text_coke_v.get()) * 3}\n\n')
+                text_receipt.insert(END, f'Кола:\t\t\t{int(text_coke_v.get()) * 3}\n\n')
 
             if text_ice_tea_v.get() != '0':
-                text_receipt.insert(END, f'Ice tea:\t\t\t{int(text_ice_tea_v.get()) * 3}\n\n')
+                text_receipt.insert(END, f'Студен чай:\t\t\t{int(text_ice_tea_v.get()) * 3}\n\n')
 
             if text_sparkling_water_v.get() != '0':
-                text_receipt.insert(END, f'Sparkling water:\t\t\t{int(text_sparkling_water_v.get()) * 3}\n\n')
+                text_receipt.insert(END, f'Газирана вода:\t\t\t{int(text_sparkling_water_v.get()) * 3}\n\n')
 
             if text_whisky_v.get() != '0':
-                text_receipt.insert(END, f'Whisky:\t\t\t{int(text_whisky_v.get()) * 6}\n\n')
+                text_receipt.insert(END, f'Уиски:\t\t\t{int(text_whisky_v.get()) * 6}\n\n')
 
             if text_red_wine_v.get() != '0':
-                text_receipt.insert(END, f'Red Wine:\t\t\t{int(text_red_wine_v.get()) * 6}\n\n')
+                text_receipt.insert(END, f'Червено вино:\t\t\t{int(text_red_wine_v.get()) * 6}\n\n')
 
             if text_white_wine_v.get() != '0':
-                text_receipt.insert(END, f'White Wine:\t\t\t{int(text_white_wine_v.get()) * 6}\n\n')
+                text_receipt.insert(END, f'Бяло вино:\t\t\t{int(text_white_wine_v.get()) * 6}\n\n')
 
             if text_vodka_v.get() != '0':
-                text_receipt.insert(END, f'Vodka:\t\t\t{int(text_vodka_v.get()) * 6}\n\n')
+                text_receipt.insert(END, f'Водка:\t\t\t{int(text_vodka_v.get()) * 6}\n\n')
 
             if text_lemonade_v.get() != '0':
-                text_receipt.insert(END, f'Lemonade:\t\t\t{int(text_lemonade_v.get()) * 4}\n\n')
+                text_receipt.insert(END, f'Лимонада:\t\t\t{int(text_lemonade_v.get()) * 4}\n\n')
 
             if text_strawberry_cake_v.get() != '0':
-                text_receipt.insert(END, f'Strawberry cake:\t\t\t{int(text_strawberry_cake_v.get()) * 8}\n\n')
+                text_receipt.insert(END, f'Ягодова торта:\t\t\t{int(text_strawberry_cake_v.get()) * 8}\n\n')
 
             if text_biscuit_cake_v.get() != '0':
-                text_receipt.insert(END, f'Biscuit cake:\t\t\t{int(text_biscuit_cake_v.get()) * 8}\n\n')
+                text_receipt.insert(END, f'Бисквитена торта:\t\t\t{int(text_biscuit_cake_v.get()) * 8}\n\n')
 
             if text_brownie_v.get() != '0':
-                text_receipt.insert(END, f'Brownie:\t\t\t{int(text_brownie_v.get()) * 9}\n\n')
+                text_receipt.insert(END, f'Брауни:\t\t\t{int(text_brownie_v.get()) * 9}\n\n')
 
             if text_souffle_v.get() != '0':
-                text_receipt.insert(END, f'Souffle:\t\t\t{int(text_souffle_v.get()) * 12}\n\n')
+                text_receipt.insert(END, f'Суфле:\t\t\t{int(text_souffle_v.get()) * 12}\n\n')
 
             if text_pie_v.get() != '0':
-                text_receipt.insert(END, f'Pie:\t\t\t{int(text_pie_v.get()) * 8}\n\n')
+                text_receipt.insert(END, f'Пай:\t\t\t{int(text_pie_v.get()) * 8}\n\n')
 
             if text_ice_cream_v.get() != '0':
-                text_receipt.insert(END, f'Ice cream:\t\t\t{int(text_ice_cream_v.get()) * 4}\n\n')
+                text_receipt.insert(END, f'Сладолед:\t\t\t{int(text_ice_cream_v.get()) * 4}\n\n')
 
             if text_milkshake_v.get() != '0':
-                text_receipt.insert(END, f'Milkshake:\t\t\t{int(text_milkshake_v.get()) * 5}\n\n')
+                text_receipt.insert(END, f'Млечен шейк:\t\t\t{int(text_milkshake_v.get()) * 5}\n\n')
 
             if text_fondue_v.get() != '0':
-                text_receipt.insert(END, f'Fondue:\t\t\t{int(text_fondue_v.get()) * 7}\n\n')
+                text_receipt.insert(END, f'Фондю:\t\t\t{int(text_fondue_v.get()) * 7}\n\n')
 
             if text_fruits_v.get() != '0':
-                text_receipt.insert(END, f'Fruits:\t\t\t{int(text_fruits_v.get()) * 5}\n\n')
+                text_receipt.insert(END, f'Плодове:\t\t\t{int(text_fruits_v.get()) * 5}\n\n')
 
             text_receipt.insert(END, '***************************************************************\n')
             if cost_of_food.get() != '0 Euro':
-                text_receipt.insert(END, f'Cost Of Food\t\t\t{price_of_food}Euro\n\n')
+                text_receipt.insert(END, f'Цена на храна\t\t\t{price_of_food}Euro\n\n')
             if cost_of_drinks.get() != '0 Euro':
-                text_receipt.insert(END, f'Cost Of Drinks\t\t\t{price_of_drinks}Euro\n\n')
+                text_receipt.insert(END, f'Цена на напитки\t\t\t{price_of_drinks}Euro\n\n')
             if cost_of_desserts.get() != '0 Euro':
-                text_receipt.insert(END, f'Cost Of Desserts\t\t\t{price_of_desserts}Euro\n\n')
+                text_receipt.insert(END, f'Цена на десерти\t\t\t{price_of_desserts}Euro\n\n')
 
-            text_receipt.insert(END, f'Sub Total\t\t\t{subtotal_of_items}Euro\n\n')
-            text_receipt.insert(END, f'Service Tax\t\t\t{5}Euro\n\n')
-            text_receipt.insert(END, f'Total Cost\t\t\t{subtotal_of_items + 5}Euro\n\n')
+            text_receipt.insert(END, f'Моментна цена\t\t\t{subtotal_of_items}Euro\n\n')
+            text_receipt.insert(END, f'Такса за услугата\t\t\t{5}Euro\n\n')
+            text_receipt.insert(END, f'Обща сума\t\t\t{subtotal_of_items + 5}Euro\n\n')
             text_receipt.insert(END, '***************************************************************\n')
 
         else:
-            messagebox.showerror('Error', 'No Item Is selected')
+            messagebox.showerror('Грешка', 'Няма избрано ястие!')
 
     def total_cost_func():
         global price_of_food, price_of_drinks, price_of_desserts, subtotal_of_items
