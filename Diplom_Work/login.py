@@ -12,7 +12,7 @@ def open_window():
             status = True
             window.destroy()
         else:
-            label_result.config(text="Грешно име или парола", fg="red")
+            label_result.config(text="Грешно име или парола\nМоля опитайте отново", fg="red")
 
     # Create main window
     window = tk.Tk()
