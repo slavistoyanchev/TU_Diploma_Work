@@ -162,13 +162,13 @@ def open_new_window():
             number_field = Entry(window2, font=('helvetica', 22, 'bold'), bd=3, width=24)
             number_field.pack(pady=5)
 
-            bill_label = Label(window2, text='Bill Details', font=('arial', 18, 'bold underline'), bg='#8A8841',
+            bill_label = Label(window2, text='Касов бон', font=('arial', 18, 'bold underline'), bg='#8A8841',
                                fg='black')
             bill_label.pack(pady=5)
 
             text_area = Text(window2, font=('arial', 12, 'bold'), bd=3, width=42, height=14)
             text_area.pack(pady=5)
-            text_area.insert(END, 'Справка:\t\t' + bill_number + '\t\t' + date + '\n\n')
+            text_area.insert(END, 'Касов бон:\t\t' + bill_number + '\t\t' + date + '\n\n')
 
             if cost_of_food.get() != '0 Euro':
                 text_area.insert(END, f'Цена на храни:\t\t\t{price_of_food}Euro\n')
@@ -192,9 +192,9 @@ def open_new_window():
         if cost_of_food.get() != '' or cost_of_drinks.get() != '' or cost_of_desserts.get() != '':
             text_receipt.delete(1.0, END)
             x = random.randint(100, 10000)
-            bill_number = 'BILL' + str(x)
+            bill_number = 'Номер: ' + str(x)
             date = time.strftime('%d/%m/%Y')
-            text_receipt.insert(END, 'Receipt Ref:\t\t' + bill_number + '\t\t' + date + '\n')
+            text_receipt.insert(END, 'Касов бон:\t\t' + bill_number + '\t\t' + date + '\n')
             text_receipt.insert(END, '***************************************************************\n')
             text_receipt.insert(END, 'Артикули:\t\t Цена на ястия(Euro)\n')
             text_receipt.insert(END, '***************************************************************\n')
