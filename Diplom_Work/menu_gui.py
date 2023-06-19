@@ -1,5 +1,5 @@
 from tkinter import *
-from tkinter import filedialog, messagebox
+from tkinter import messagebox
 import requests
 import random
 import time
