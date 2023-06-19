@@ -170,16 +170,16 @@ def open_new_window():
             text_area.pack(pady=5)
             text_area.insert(END, 'Касов бон:\t\t' + bill_number + '\t\t' + date + '\n\n')
 
-            if cost_of_food.get() != '0 Euro':
-                text_area.insert(END, f'Цена на храни:\t\t\t{price_of_food}Euro\n')
-            if cost_of_drinks.get() != '0 Euro':
-                text_area.insert(END, f'Цена на напитки:\t\t\t{price_of_drinks}Euro\n')
-            if cost_of_desserts.get() != '0 Euro':
-                text_area.insert(END, f'Цена на десерти:\t\t\t{price_of_desserts}Euro\n')
+            if cost_of_food.get() != '0 лв.':
+                text_area.insert(END, f'Цена на храни:\t\t\t{price_of_food}лв.\n')
+            if cost_of_drinks.get() != '0 лв.':
+                text_area.insert(END, f'Цена на напитки:\t\t\t{price_of_drinks}лв.\n')
+            if cost_of_desserts.get() != '0 лв.':
+                text_area.insert(END, f'Цена на десерти:\t\t\t{price_of_desserts}лв.\n')
 
-            text_area.insert(END, f'Моментна цена\t\t\t{subtotal_of_items}Euro\n')
-            text_area.insert(END, f'Такса за услугата:\t\t\t{5}Euro\n')
-            text_area.insert(END, f'Обща сума:\t\t\t{subtotal_of_items + 5}Euro\n')
+            text_area.insert(END, f'Моментна цена\t\t\t{subtotal_of_items}лв.\n')
+            text_area.insert(END, f'Такса за услугата:\t\t\t{5}лв.\n')
+            text_area.insert(END, f'Обща сума:\t\t\t{subtotal_of_items + 5}лв.\n')
 
             send_button = Button(window2, text='SEND', font=('arial', 19, 'bold'), bg='black', fg='#8A8841', bd=7,
                                  relief=GROOVE, command=send_msg)
@@ -196,7 +196,7 @@ def open_new_window():
             date = time.strftime('%d/%m/%Y')
             text_receipt.insert(END, 'Касов бон:\t\t' + bill_number + '\t\t' + date + '\n')
             text_receipt.insert(END, '***************************************************************\n')
-            text_receipt.insert(END, 'Артикули:\t\t Цена на ястия(Euro)\n')
+            text_receipt.insert(END, 'Артикули:\t\t Цена на ястия(лв.)\n')
             text_receipt.insert(END, '***************************************************************\n')
             if text_salad_v.get() != '0':
                 text_receipt.insert(END, f'Салата\t\t\t{int(text_salad_v.get()) * 7}\n\n')
@@ -280,16 +280,16 @@ def open_new_window():
                 text_receipt.insert(END, f'Плодове:\t\t\t{int(text_fruits_v.get()) * 5}\n\n')
 
             text_receipt.insert(END, '***************************************************************\n')
-            if cost_of_food.get() != '0 Euro':
-                text_receipt.insert(END, f'Цена на храна\t\t\t{price_of_food}Euro\n\n')
-            if cost_of_drinks.get() != '0 Euro':
-                text_receipt.insert(END, f'Цена на напитки\t\t\t{price_of_drinks}Euro\n\n')
-            if cost_of_desserts.get() != '0 Euro':
-                text_receipt.insert(END, f'Цена на десерти\t\t\t{price_of_desserts}Euro\n\n')
+            if cost_of_food.get() != '0 лв.':
+                text_receipt.insert(END, f'Цена на храна\t\t\t{price_of_food}лв.\n\n')
+            if cost_of_drinks.get() != '0 лв.':
+                text_receipt.insert(END, f'Цена на напитки\t\t\t{price_of_drinks}лв.\n\n')
+            if cost_of_desserts.get() != '0 лв.':
+                text_receipt.insert(END, f'Цена на десерти\t\t\t{price_of_desserts}лв.\n\n')
 
-            text_receipt.insert(END, f'Моментна цена\t\t\t{subtotal_of_items}Euro\n\n')
-            text_receipt.insert(END, f'Такса за услугата\t\t\t{5}Euro\n\n')
-            text_receipt.insert(END, f'Обща сума\t\t\t{subtotal_of_items + 5}Euro\n\n')
+            text_receipt.insert(END, f'Моментна цена\t\t\t{subtotal_of_items}лв.\n\n')
+            text_receipt.insert(END, f'Такса за услугата\t\t\t{5}лв.\n\n')
+            text_receipt.insert(END, f'Обща сума\t\t\t{subtotal_of_items + 5}лв.\n\n')
             text_receipt.insert(END, '***************************************************************\n')
 
         else:
@@ -345,17 +345,17 @@ def open_new_window():
             price_of_desserts = (item19 * 8) + (item20 * 8) + (item21 * 9) + (item22 * 5) + (item23 * 12) + (
                     item24 * 8) + (item25 * 4) + (item26 * 5) + (item27 * 7)
 
-            cost_of_food.set(str(price_of_food) + ' Euro')
-            cost_of_drinks.set(str(price_of_drinks) + ' Euro')
-            cost_of_desserts.set(str(price_of_desserts) + ' Euro')
+            cost_of_food.set(str(price_of_food) + ' лв.')
+            cost_of_drinks.set(str(price_of_drinks) + ' лв.')
+            cost_of_desserts.set(str(price_of_desserts) + ' лв.')
 
             subtotal_of_items = price_of_food + price_of_drinks + price_of_desserts
-            sub_total.set(str(subtotal_of_items) + ' Euro')
+            sub_total.set(str(subtotal_of_items) + ' лв.')
 
-            service_tax.set('5 Euro')
+            service_tax.set('5 лв.')
 
             total_cost_v = subtotal_of_items + 5
-            total_cost.set(str(total_cost_v) + ' Euro')
+            total_cost.set(str(total_cost_v) + ' лв.')
 
         else:
             messagebox.showerror('Error', 'No Item Is selected')
