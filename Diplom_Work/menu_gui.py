@@ -109,18 +109,19 @@ def open_new_window():
         total_cost.set('')
 
     def save():
+        import easygui
         if text_receipt.get(1.0, END) == '\n':
             pass
         else:
-            url = filedialog.asksaveasfile(mode='w', defaultextension='.txt')
+            url = easygui.filesavebox(filetypes=["*.txt"], default='.txt', title="Save file")
             if url is None:
                 pass
             else:
-
-                bill_data = text_receipt.get(1.0, END)
-                url.write(bill_data)
-                url.close()
-                messagebox.showinfo('Информация', 'Касовия бон е запазен успешно!')
+                with open(url, 'w', encoding='utf-8') as file:
+                    bill_data = text_receipt.get(1.0, END)
+                    file.write(bill_data)
+                    file.close()
+                    messagebox.showinfo('Информация', 'Касовия бон е запазен успешно!')
 
     def send():
         if text_receipt.get(1.0, END) == '\n':
